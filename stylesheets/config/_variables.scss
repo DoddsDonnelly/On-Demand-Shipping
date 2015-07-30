@@ -1,0 +1,59 @@
+﻿/////// Default Variables
+//// Font Variables
+// Font Styles
+$header-font: 'Oswald',"Trebuchet MS", "Myriad Web Pro", arial, serif;
+$default-font: Arial, Helvetica, sans-serif;
+$script-font: 'Yellowtail', cursive;
+
+// Font Sizes
+$default-font-size: 13px;
+$xxs-font: 11px;
+$xs-font: 14px;
+$s-font: 16px;
+$m-font: 18px;
+$l-font: 22px;
+$xl-font: 25px;
+$xxl-font: 28px;
+
+//// Font Weights
+// Light Colors
+$default-weight: 500;
+$lighter: 300;
+$thick: 700;
+$thicker: 800;
+$thickest: 900;
+
+//// Color Variables
+// Light Colors
+// l1 being the lightest l3 the darkest
+$l1-color: #fff !default;
+$l2-color: #eee !default;
+$l3-color: #ddd !default;
+$l4-color: #bbb !default;
+
+// Medium Colors
+// m1 being the lightest and m3 being the darkest
+$m1-color: #999 !default;
+$m2-color: #666 !default;
+$m3-color: #444 !default;
+
+// Dark Colors
+// d1 is a currently a dark gray
+$d1-color: #333 !default;
+// d2 is currently a black
+$d2-color: #000 !default;
+
+// Used for default font color ONLY
+$d3-color: #000000 !default; 
+
+// Accent Color
+// a1 is the main accent used all over the site
+$a1-color: #722f37 !default;
+// secondary accent currently being used on a button and sort on menu
+$a2-color:#3ea73e !default;
+$a3-color:#256625 !default;
+// currently used on the body of the site
+$a4-color:#f6fbfe !default;
+
+
+
