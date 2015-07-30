@@ -1,0 +1,278 @@
+﻿@import "../config/variables";
+@import "../config/mixins";
+
+/* Typography */
+
+/* Header Styles */
+// Global Header Style Extend To All Headers
+.header-style {
+    font-weight: $default-weight;
+    line-height: 1em;
+    margin: 0;
+    padding: 5px 0;
+}
+// Header Levels
+h1 {
+    @extend .header-style;
+    font-size: $xxl-font;
+    color: $d1-color;
+}
+
+h2 {
+    @extend .header-style;
+    font-size: $xl-font;
+    color: $d1-color;
+}
+
+h3 {
+    @extend .header-style;
+    font-size: $l-font;
+    color: $d1-color;
+}
+
+h4 {
+    @extend .header-style;
+    font-size: $m-font;
+    color: $d1-color;
+}
+
+h5 {
+    @extend .header-style;
+    font-size: $s-font;
+    color: $m2-color;
+}
+
+h6 {
+    @extend .header-style;
+    font-size: $xs-font;
+    color: $m1-color;
+    margin: 0 0 7px;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-family: $header-font;
+    letter-spacing: 1px;
+}
+
+
+/* Text Styles */
+Body, .Normal, .NormalTextBox, td, p, .Normal, .NormalDisabled, .NormalBold {
+    font-family: $default-font;
+    line-height: 1.5em;
+    color: $d3-color;
+    font-weight: $default-weight;
+    font-size: $default-font-size;
+}
+
+p {
+    padding: 5px 0;
+    margin: 0;
+}
+
+// Font Styles
+
+.header-font {
+    font-family: $header-font;
+}
+
+.default-font {
+    font-family: $default-font;
+}
+
+.script-font {
+    font-family: $script-font;
+}
+
+
+
+// Font Sizes
+
+.default-font-size {
+    font-size: $default-font-size;
+}
+
+.xxs-font {
+    font-size: $xxs-font;
+}
+
+.xs-font {
+    font-size: $xs-font;
+}
+
+.s-font {
+    font-size: $s-font;
+}
+
+.m-font {
+    font-size: $m-font;
+}
+
+.l-font {
+    font-size: $l-font;
+}
+
+.xl-font {
+    font-size: $xl-font;
+}
+
+.xxl-font {
+    font-size: $xxl-font;
+}
+
+// Font Weights
+
+.default-weight {
+    font-weight: $default-weight;
+}
+
+.lighter {
+    font-weight: $lighter;
+}
+
+.thick {
+    font-weight: $thick;
+}
+
+.thicker {
+    font-weight: $thicker;
+}
+
+.thickest {
+    font-weight: $thickest;
+}
+
+
+// Emphasize
+em, dfn, q {
+    color: $d1-color;
+}
+
+.SubHead{color:$d1-color;}
+
+.subdent {
+    text-indent: -15px;
+    padding: 10px 0 0 63px;
+}
+
+.SmCaps {
+    font-variant: small-caps;
+}
+
+abbr {
+    border-bottom: 1px $d1-color dotted;
+    color: $d1-color;
+}
+
+// Used to Display Code
+code {
+    border: 1px $l4-color solid;
+    display: block;
+    padding: 10px;
+    @include border-radius(5px);
+    margin-right: 8px;
+}
+
+/* Text Alignment */
+.leftAlignment {
+    text-align: left;
+}
+
+.centerAlignment {
+    text-align: center;
+}
+
+.rightAlignment {
+    text-align: right;
+}
+
+
+
+/* Inset Styles */
+ins {
+    background: $d2-color;
+    color: $l1-color;
+    text-decoration: none;
+    padding: 1px 5px;
+}
+
+.insAccent {
+    background: $a1-color;
+    color: $l1-color;
+    text-decoration: none;
+    padding: 1px 5px;
+}
+
+/* Block Quote */
+blockquote {
+    &.style1 {
+        font: 14px/20px italic Times, serif;
+        margin: 5px;
+
+        span {
+            display: block;
+            background-color: $l2-color;
+            border: 1px solid $l3-color;
+            padding: 10px;
+        }
+
+        p {
+            background: url('data:image/gif;base64,R0lGODlhGQANAKIAAAAAAP///+7u7ujo6OTk5N3d3f///wAAACH5BAEAAAYALAAAAAAZAA0AAAMyWCTc/pAUo6CN09B1r9Rg1T0fGHKjUJpnurKtl8Gs+AwzXaPMq+8N3w8oHO5yRh2SlgAAOw==') /*images/bq.gif*/ 60px 0 no-repeat;
+            margin: -1px 0 0 20px;
+            padding-top: 15px;
+            text-indent: 40px;
+        }
+    }
+
+    &.style2 {
+        font: 18px/30px normal Tahoma, sans-serif;
+        padding-top: 22px;
+        margin: 5px;
+        background: url(images/openquote2.png) 0 0 no-repeat;
+        text-indent: 65px;
+
+        span {
+            display: block;
+            background: url(images/closequote2.png) bottom right no-repeat;
+        }
+    }
+
+    &.style3 {
+        font: 14px/20px italic Times, serif;
+        padding: 18px 10px 18px 70px;
+        margin: 5px;
+        background: url(images/openquote3.png) 0 0 no-repeat $l2-color;
+        text-indent: 23px;
+    }
+
+    &.style4 {
+        padding-left: 70px;
+        padding-top: 5px;
+        padding-bottom: 5px;
+        margin: 5px;
+        background: url(images/openquote4.5.png) top left no-repeat;
+
+        span {
+            padding-right: 50px;
+            display: block;
+            background: url(images/closequote4.5.png) bottom right no-repeat;
+            text-decoration: none;
+            text-transform: uppercase;
+            color: $d1-color;
+            font-weight: $thick;
+            font-size: $s-font;
+        }
+
+        h5 {
+            @extend .rightAlignment;
+            padding-right: 60px;
+        }
+    }
+
+    &.style5 {
+        font: 16px/20px italic arial, serif;
+        padding: 18px 10px 18px 70px;
+        margin: 5px;
+        background: url(images/openquote3.png) 0 0 no-repeat;
+        text-indent: 23px;
+    }
+}
