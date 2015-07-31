@@ -6,7 +6,6 @@ MinimumVisualStudioVersion = 10.0.40219.1
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{E5FCC1EF-E642-4CBD-AE91-C01AA12E31B2}"
 	ProjectSection(SolutionItems) = preProject
 		index.html = index.html
-		params.json = params.json
 	EndProjectSection
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "stylesheets", "stylesheets", "{441AA07D-28FB-4617-AF03-4CA5D0D2587A}"
@@ -33,6 +32,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "partials", "partials", "{DF
 		stylesheets\partials\_button.scss = stylesheets\partials\_button.scss
 		stylesheets\partials\_color.scss = stylesheets\partials\_color.scss
 		stylesheets\partials\_layout.scss = stylesheets\partials\_layout.scss
+		stylesheets\partials\_mobile.scss = stylesheets\partials\_mobile.scss
 		stylesheets\partials\_typography.scss = stylesheets\partials\_typography.scss
 		stylesheets\partials\_widget.scss = stylesheets\partials\_widget.scss
 	EndProjectSection
@@ -41,6 +41,11 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "scripts", "scripts", "{FB4A
 	ProjectSection(SolutionItems) = preProject
 		scripts\jquery.details.js = scripts\jquery.details.js
 		scripts\jquery.details.min.js = scripts\jquery.details.min.js
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "images", "images", "{1D2C6441-135E-4110-A5C4-32A483092103}"
+	ProjectSection(SolutionItems) = preProject
+		images\chevron.png = images\chevron.png
 	EndProjectSection
 EndProject
 Global
@@ -53,5 +58,6 @@ Global
 		{13957B1A-B06C-4262-927C-84A74CCD6758} = {441AA07D-28FB-4617-AF03-4CA5D0D2587A}
 		{DF5CBD1A-04E4-49F3-8738-C8E81A660CEE} = {441AA07D-28FB-4617-AF03-4CA5D0D2587A}
 		{FB4A89D9-ACBC-4A81-B0B0-E946B63EB923} = {E5FCC1EF-E642-4CBD-AE91-C01AA12E31B2}
+		{1D2C6441-135E-4110-A5C4-32A483092103} = {E5FCC1EF-E642-4CBD-AE91-C01AA12E31B2}
 	EndGlobalSection
 EndGlobal

@@ -6,68 +6,83 @@
 // demo only
 .demo {
     margin: 20px 10px;
-    width:15%;
-    min-width:200px;
 }
 
 // On Demand Shipping
 .notification {
-    position:relative;
-    top:-10px;
+    position: relative;
+    top: -10px;
     right: 15px;
-    height:28px;
-    width:28px;
-    text-align:center;
-    float:right;
+    height: 28px;
+    width: 28px;
+    text-align: center;
+    float: right;
 }
 
 .dsIcon {
     padding: 7px 2px;
-   &:hover{text-decoration:none;}
+    float:left;
+
+    &:hover {
+        text-decoration: none;
+    }
+}
+
+.dsProductTitle{
+    margin-top: 2px;
+    overflow:hidden;
+    height:18px;
 }
 
 .dsCompanyName {
     padding: 5px;
-    &:hover{text-decoration:none;}
+    float:left;
+
+    &:hover {
+        text-decoration: none;
+    }
 }
 
 .dsProductNumber {
     padding: 5px;
-    &:hover{text-decoration:none;}
+    float:right;
+
+    &:hover {
+        text-decoration: none;
+    }
 }
 
-.lDropdown {
-    width:15%;
+.chevron {
+    height:90px;
+    width:90px;
+    float:left;
 }
- 
-.dsCircle {
-  border: 2px solid $a1-color;
+
+ .overlayContent {
+  position: relative;
+  left: 52%;
+  top: -55%;
+  -ms-transform: translateX(-50%) translateY(-50%);
+  -webkit-transform: translateX(-50%) translateY(-50%);
+  transform: translateX(-50%) translateY(-50%);
+  text-shadow: 1px 1px 2px rgba(0,0,0,0.1);
   float:left;
-  min-width:35px;
-  min-height:35px;
-  height:10%;
-  width:10%;
-  margin:3% 5% 3% 3%;
-  @include border-radius(30px);
-  text-align:center;
-  p{
-      overflow:visible;
-  }
 }
+
+.element {
+height:100%;
+}
+
+.dsText{
+    margin-left:20%;
+    overflow:hidden;
+}
+
 .dsArrow::-webkit-details-marker {
-  display:none;
+    display: none;
 }
 
-summary{
-  outline:none;
+summary {
+    outline: none;
 }
 
-@media handheld, only screen and (max-width: 767px) {
-    .dsCircle{
-        margin:3% 37%;
-
-    }
-    .dsText{
-        text-align:center;
-    }
-}
