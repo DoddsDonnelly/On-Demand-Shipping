@@ -10,7 +10,7 @@
         <div class="radius10 level1 demo">
             <div class="notification radius30 a1-color level1"><p class="whiteText thick dsCount"></p></div>
             <div class="m1-color tRadius10">
-                <h3 class="pad2 whiteText">On Demand Shipping</h3>
+                <h3 class="pad2 whiteText">On Demand Shipping 2</h3>
             </div>
             <div class="l1-color bRadius10">
                 <div id="onDShipping">
@@ -24,31 +24,6 @@
 </html>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.0.0-alpha1/jquery.min.js"></script>
 <script src="scripts\jquery.details.min.js"></script>
-<script>
-    $(function () {
-
-        // Add conditional classname based on support
-        $('#onDShipping').addClass($.fn.details.support ? 'details' : 'no-details');
-
-        // Emulate <details> where necessary and enable open/close event handlers
-        $('details').details();
-
-        // Bind some example event handlers
-        $('details').on({
-            'open.details': function () {
-                console.log('opened');
-            },
-            'close.details': function () {
-                console.log('closed');
-            }
-        });
-
-        // Notification count
-        $('.dsCount').prepend($('#onDShipping details').length)
-
-
-    });
-</script> 
 <script>
     /*
    var onDemandShip = [
@@ -204,3 +179,28 @@
         document.getElementById("onDShipping").innerHTML = out;
     }
 </script>
+<script>
+    $(function () {
+
+        // Add conditional classname based on support
+        $('#onDShipping').addClass($.fn.details.support ? 'details' : 'no-details');
+
+        // Emulate <details> where necessary and enable open/close event handlers
+        $('details').details();
+
+        // Bind some example event handlers
+        $('details').on({
+            'open.details': function () {
+                console.log('opened');
+            },
+            'close.details': function () {
+                console.log('closed');
+            }
+        });
+
+        // Notification count
+        $('.dsCount').prepend($('#onDShipping details').length)
+
+
+    });
+</script> 
