@@ -201,6 +201,7 @@
             </div>
         </div>
     </div>
+    <p id="demo"></p>
 </body>
 </html>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.0.0-alpha1/jquery.min.js"></script>
@@ -230,4 +231,140 @@
 
 
     });
+</script>
+<script>
+
+   /* var onDemandShip = [
+        {
+            "companyName": "ABC Company",
+            "product": {
+                "number": "1260T",
+                "name": "Tall Six Bottle Salesperson"
+            },
+            "fabric": {
+                "color": "Red",
+                "name": "600d"
+            },
+            "art": "ABCbag15",
+            "quantity": "15"
+        },
+        {
+            "companyName": "ABC Company",
+            "product": {
+                "number": "6390",
+                "name": "WOW Cube"
+            },
+            "fabric": {
+                "color": "Black",
+                "name": "1200d"
+            },
+            "art": "ABCbag15",
+            "quantity": "5"
+        },
+        {
+            "companyName": "Global Trading",
+            "product": {
+                "number": "1224",
+                "name": "Four Bottle Salesperson"
+            },
+            "fabric": {
+                "color": "Forest",
+                "name": "1000d"
+            },
+            "art": "GBtbag15",
+            "quantity": "11"
+        },
+        {
+            "companyName": "Brand Classics",
+            "product": {
+                "number": "1260",
+                "name": "Six Bottle Salesperson"
+            },
+            "fabric": {
+                "color": "Black",
+                "name": "1000d"
+            },
+            "art": "ArtFile15",
+            "quantity": "2"
+        },
+        {
+            "companyName": "Some Company",
+            "product": {
+                "number": "6590",
+                "name": "WOW Traveler"
+            },
+            "fabric": {
+                "color": "Black",
+                "name": "1200d"
+            },
+            "art": "SCbag10",
+            "quantity": "9"
+        },
+        {
+            "companyName": "Test Name",
+            "product": {
+                "number": "1240",
+                "name": "Two Bottle"
+            },
+            "fabric": {
+                "color": "Navy",
+                "name": "420d"
+            },
+            "art": "Cape15",
+            "quantity": "17"
+        },
+        {
+            "companyName": "Brands Inc",
+            "product": {
+                "number": "1240V",
+                "name": "VIntage Two Bottle"
+            },
+            "fabric": {
+                "color": "Red",
+                "name": "600d"
+            },
+            "art": "Brands09",
+            "quantity": "178"
+        },
+        {
+            "companyName": "785 Trading",
+            "product": {
+                "number": "6500",
+                "name": "Small Square Table Drape"
+            },
+            "fabric": {
+                "color": "Black",
+                "name": "Bronco"
+            },
+            "art": "785 Table",
+            "quantity": "19"
+        }
+    ];
+
+    document.getElementById("demo").innerHTML =
+    onDemandShip[0]["companyName"] + " " + onDemandShip[0]["product"]["number"];;*/
+
+
+
+            var xmlhttp = new XMLHttpRequest();
+            var url = "data/onDemandShip.txt";
+
+            xmlhttp.onreadystatechange = function() {
+                if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
+                    var myArr = JSON.parse(xmlhttp.responseText);
+                    myFunction(myArr);
+                }
+            }
+            xmlhttp.open("GET", url, true);
+            xmlhttp.send();
+
+            function myFunction(arr) {
+                var out = "";
+                var i;
+                for(i = 0; i < arr.length; i++) {
+                    out += '<a href="' + arr[i].url + '">' + 
+                    arr[i].display + '</a><br>';
+                }
+                document.getElementById("id01").innerHTML = out;
+            }
 </script>

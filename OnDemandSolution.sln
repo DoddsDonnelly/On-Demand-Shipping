@@ -49,6 +49,13 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "images", "images", "{1D2C64
 		images\chevron.png = images\chevron.png
 	EndProjectSection
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "data", "data", "{B414E3EF-F7A9-4344-8F08-4CA5C8F2A47E}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "data", "data", "{68704F6E-C78B-4B93-B48F-BAA020BC0769}"
+	ProjectSection(SolutionItems) = preProject
+		data\onDemandShip.txt = data\onDemandShip.txt
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -60,5 +67,7 @@ Global
 		{DF5CBD1A-04E4-49F3-8738-C8E81A660CEE} = {441AA07D-28FB-4617-AF03-4CA5D0D2587A}
 		{FB4A89D9-ACBC-4A81-B0B0-E946B63EB923} = {E5FCC1EF-E642-4CBD-AE91-C01AA12E31B2}
 		{1D2C6441-135E-4110-A5C4-32A483092103} = {E5FCC1EF-E642-4CBD-AE91-C01AA12E31B2}
+		{B414E3EF-F7A9-4344-8F08-4CA5C8F2A47E} = {E5FCC1EF-E642-4CBD-AE91-C01AA12E31B2}
+		{68704F6E-C78B-4B93-B48F-BAA020BC0769} = {441AA07D-28FB-4617-AF03-4CA5D0D2587A}
 	EndGlobalSection
 EndGlobal
