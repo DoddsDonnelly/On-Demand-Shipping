@@ -10,7 +10,7 @@
         <div class="radius10 level1 demo">
             <div class="notification radius30 a1-color level1"><p class="whiteText thick dsCount"></p></div>
             <div class="m1-color tRadius10">
-                <h3 class="pad2 whiteText">On Demand Shipping 10</h3>
+                <h3 class="pad2 whiteText">On Demand Shipping</h3>
             </div>
             <div class="l1-color bRadius10">
                 <div id="onDShipping">
@@ -25,133 +25,8 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.0.0-alpha1/jquery.min.js"></script>
 <script src="scripts\jquery.details.min.js"></script>
 <script>
-    /*
-   var onDemandShip = [
-        {
-            "companyName": "ABC Company",
-            "product": {
-                "number": "1260T",
-                "name": "Tall Six Bottle Salesperson"
-            },
-            "fabric": {
-                "color": "Red",
-                "name": "600d"
-            },
-            "art": "ABCbag15",
-            "quantity": "15"
-        },
-        {
-            "companyName": "ABC Company",
-            "product": {
-                "number": "6390",
-                "name": "WOW Cube"
-            },
-            "fabric": {
-                "color": "Black",
-                "name": "1200d"
-            },
-            "art": "ABCbag15",
-            "quantity": "5"
-        },
-        {
-            "companyName": "Global Trading",
-            "product": {
-                "number": "1224",
-                "name": "Four Bottle Salesperson"
-            },
-            "fabric": {
-                "color": "Forest",
-                "name": "1000d"
-            },
-            "art": "GBtbag15",
-            "quantity": "11"
-        },
-        {
-            "companyName": "Brand Classics",
-            "product": {
-                "number": "1260",
-                "name": "Six Bottle Salesperson"
-            },
-            "fabric": {
-                "color": "Black",
-                "name": "1000d"
-            },
-            "art": "ArtFile15",
-            "quantity": "2"
-        },
-        {
-            "companyName": "Some Company",
-            "product": {
-                "number": "6590",
-                "name": "WOW Traveler"
-            },
-            "fabric": {
-                "color": "Black",
-                "name": "1200d"
-            },
-            "art": "SCbag10",
-            "quantity": "9"
-        },
-        {
-            "companyName": "Test Name",
-            "product": {
-                "number": "1240",
-                "name": "Two Bottle"
-            },
-            "fabric": {
-                "color": "Navy",
-                "name": "420d"
-            },
-            "art": "Cape15",
-            "quantity": "17"
-        },
-        {
-            "companyName": "Brands Inc",
-            "product": {
-                "number": "1240V",
-                "name": "VIntage Two Bottle"
-            },
-            "fabric": {
-                "color": "Red",
-                "name": "600d"
-            },
-            "art": "Brands09",
-            "quantity": "178"
-        },
-        {
-            "companyName": "785 Trading",
-            "product": {
-                "number": "6500",
-                "name": "Small Square Table Drape"
-            },
-            "fabric": {
-                "color": "Black",
-                "name": "Bronco"
-            },
-            "art": "785 Table",
-            "quantity": "19"
-        }
-    ];
-
-    myFunction(onDemandShip);
-
-    function myFunction(arr) {
-        var out = "";
-        var i;
-        for (i = 0; i < arr.length; i++) {
-            out += '<details><summary class="dsArrow"><section class="pad2 "><a href="" class="fa fa-pencil dsIcon"></a><a href="" class="fa fa-truck dsIcon"></a><p class="thick dsCompanyName">' + arr[i].companyName
-                + '</p><span class="thick dsProductNumber accentText">' + arr[i].product.number
-                + '</span><div class="clr"></div></section></summary><div class="l2-color"><div class="chevron"><img class="element" src="images/chevron.png" /><p class="m-font thick overlayContent">' + arr[i].quantity
-                + '</p></div><section class="dsText"><p class="thicker dsProductTitle">' + arr[i].product.name
-            + '</p><p><span class="thick">Fabric: </span>' + arr[i].fabric.name
-            + ' ' + arr[i].fabric.color
-            + '</p><p><span class="thick">Art: </span>' + arr[i].art
-            + '</p></section><div class="clr"></div></div></details>';}
-        document.getElementById("onDShipping").innerHTML = out;
-    } */
-
     var xmlhttp = new XMLHttpRequest();
-    var url = "data/onDemandShip.txt";
+    var url = "http://doddsdonnelly.github.io/On-Demand-Shipping-Widget/data/onDemandShip.txt";
 
     xmlhttp.onreadystatechange = function () {
         if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
