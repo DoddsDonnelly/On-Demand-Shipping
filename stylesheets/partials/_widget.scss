@@ -54,7 +54,7 @@
 
 .chevron {
     height:90px;
-    width:90px;
+    width:60px;
     float:left;
 }
 
@@ -62,9 +62,7 @@
   position: relative;
   left: 52%;
   top: -55%;
-  -ms-transform: translateX(-50%) translateY(-50%);
-  -webkit-transform: translateX(-50%) translateY(-50%);
-  transform: translateX(-50%) translateY(-50%);
+  @include transform(translateX(-50%) translateY(-50%));
   text-shadow: 1px 1px 2px rgba(0,0,0,0.1);
   float:left;
 }
@@ -74,7 +72,7 @@ height:100%;
 }
 
 .dsText{
-    margin-left:20%;
+    padding-left:5%;
     overflow:hidden;
 }
 
