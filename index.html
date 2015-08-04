@@ -52,10 +52,10 @@
             + '</p></section><div class="clr"></div></div></details>';
         }
         document.getElementById("onDShipping").innerHTML = out;
-    }
-</script>
-<script>
-    $(function () {
+
+        var count = Object.keys(arr).length
+        $('.dsCount').prepend(count);
+
 
         // Add conditional classname based on support
         $('#onDShipping').addClass($.fn.details.support ? 'details' : 'no-details');
@@ -73,9 +73,5 @@
             }
         });
 
-        // Notification count
-        $('.dsCount').prepend($('#onDShipping details').length)
-
-
-    });
-</script> 
+    }
+</script>
