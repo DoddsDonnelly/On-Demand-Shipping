@@ -8,12 +8,35 @@
 <body class="a4-color" style="height:100%; width:100%">
     <div class="LeftFourPane">
         <div class="radius10 level1 demo">
-            <div class="notification radius30 a1-color level1"><p class="whiteText thick dsCount"></p></div>
+            <div class="notification radius30 a1-color level1"><p class="whiteText thick dsCount" data-bind="text: allOnDemandShipments().length"></p></div>
             <div class="m1-color tRadius10">
-                <h3 class="pad2 whiteText">On Demand Shipping test</h3>
+                <h3 class="pad2 whiteText">On Demand Shipping</h3>
             </div>
-            <div class="l1-color bRadius10">
-                <div id="onDShipping">
+            <div class="l1-color bRadius10" data-bind="if: allOnDemandShipments().length">
+                <div id="onDShipping" data-bind="foreach: allOnDemandShipments">
+                    <details>
+                        <summary class="dsArrow">
+                            <section class="pad2 ">
+                                <a href="" class="fa fa-pencil dsIcon"></a>
+                                <a href="" class="fa fa-truck dsIcon"></a>
+                                <p class="thick dsCompanyName" data-bind="text: companyName"></p>
+                                <span class="thick dsProductNumber accentText" data-bind="text: productNumber"></span>
+                                <div class="clr"></div>
+                            </section>
+                        </summary>
+                        <div class="l2-color">
+                            <div class="chevron">
+                                <img class="element" src="images\chevron.png" />
+                                <p class="m-font thick overlayContent" data-bind="text: quantity"></p>
+                            </div>
+                            <section class="dsText">
+                                <p class="thicker dsProductTitle" data-bind="text: productName"></p>
+                                <p><span class="thick">Fabric: </span><span data-bind="text: productNumber"></span> <span data-bind="text: fabricColor"></span></p>
+                                <p><span class="thick">Art: </span><span data-bind="text: art"></span></p>
+                            </section>
+                            <div class="clr"></div>
+                        </div>
+                    </details>
                 </div>
                 <p></p>
             </div>
@@ -23,8 +46,79 @@
 </body>
 </html>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.0.0-alpha1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/knockout/3.3.0/knockout-min.js"></script>
 <script src="scripts\jquery.details.min.js"></script>
 <script>
+    //The Model
+    var onDemandShipmentData = [
+    new onDemandShipment({ companyName: "Joe", product: { number: "6390", name: "WOW Cube" }, fabric: { color: "Black", weight: "1200d" }, art: "Page", quantity: "21" }),
+    new onDemandShipment({ companyName: "Todd", product: { number: "6390", name: "WOW Cube" }, fabric: { color: "Black", weight: "1200d" }, art: "Chapman", quantity: "43" }),
+    new onDemandShipment({ companyName: "Lenard", product: { number: "6390", name: "WOW Cube" }, fabric: { color: "Black", weight: "1200d" }, art: "Haggard", quantity: "37" }),
+    new onDemandShipment({ companyName: "John", product: { number: "6390", name: "WOW Cube" }, fabric: { color: "Black", weight: "1200d" }, art: "Armstrong", quantity: "28" }),
+    new onDemandShipment({ companyName: "Mark", product: { number: "6390", name: "WOW Cube" }, fabric: { color: "Black", weight: "1200d" }, art: "Ramirez", quantity: "27" }),
+    new onDemandShipment({ companyName: "Cameron", product: { number: "6390", name: "WOW Cube" }, fabric: { color: "Black", weight: "1200d" }, art: "Philip", quantity: "34" }),
+    new onDemandShipment({ companyName: "Andre", product: { number: "6390", name: "WOW Cube" }, fabric: { color: "Black", weight: "1200d" }, art: "Spencer", quantity: "41" }),
+    new onDemandShipment({ companyName: "Heath", product: { number: "6390", name: "WOW Cube" }, fabric: { color: "Black", weight: "1200d" }, art: "Person", quantity: "33" }),
+    new onDemandShipment({ companyName: "Mark", product: { number: "6390", name: "WOW Cube" }, fabric: { color: "Black", weight: "1200d" }, art: "Greenwood", quantity: "24" }),
+    new onDemandShipment({ companyName: "Allen", product: { number: "6390", name: "WOW Cube" }, fabric: { color: "Black", weight: "1200d" }, art: "Spencer", quantity: "33" })];
+
+    function onDemandShipment(data) {
+        this.companyName = data.companyName;
+        this.productName = data.product.name;
+        this.productNumber = data.product.number;
+        this.fabricColor = data.fabric.color;
+        this.fabricWeight = data.fabric.weight;
+        this.art = data.art;
+        this.quantity = data.quantity;
+    }
+    //The ViewModel
+    function viewModel() {
+        // Data
+        var self = this;
+        self.allOnDemandShipments = ko.observableArray(onDemandShipmentData);
+        self.companyNameToAdd = ko.observable("");
+        self.productNameToAdd = ko.observable("");
+        self.productNumberToAdd = ko.observable("");
+        self.fabricColorToAdd = ko.observable("");
+        self.fabricWeightToAdd = ko.observable("");
+        self.artToAdd = ko.observable("");
+        self.quantityToAdd = ko.observable("");
+
+        // Operations
+        this.removeLine = function () { self.allOnDemandShipments.remove(this) };
+        this.addItem = function () {
+            if ((this.companyNameToAdd() != "") && (this.allOnDemandShipments.indexOf(this.companyNameToAdd()) < 0)) // Prevent blanks and duplicates
+            {
+                this.allOnDemandShipments.push(new onDemandShipment({ companyName: this.companyNameToAdd(), product: { number: this.productNumberToAdd(), name: this.companyNameToAdd() }, fabric: { color: this.fabricColorToAdd(), weight: this.fabricWeightToAdd() }, art: this.artToAdd(), quantity: this.quantityToAdd() }));
+                this.companyNameToAdd("");
+            }
+            this.companyNameToAdd("");
+            this.productNameToAdd("");
+            this.productNumberToAdd("");
+            this.fabricColorToAdd("");
+            this.fabricWeightToAdd("");
+            this.artToAdd("");
+            this.quantityToAdd("");
+        };
+    }
+
+    ko.bindingHandlers.jqButton = {
+        init: function (element) {
+            $(element).button();
+        },
+        update: function (element, valueAccessor) {
+            var currentValue = valueAccessor();
+            $(element).button("option", "disabled", currentValue.enable === false);
+        }
+    };
+
+    ko.applyBindings(new viewModel());
+
+
+
+
+    // Json calls
+    /*
     var xmlhttp = new XMLHttpRequest();
     var url = "http://doddsdonnelly.github.io/On-Demand-Shipping-Widget/data/onDemandShip.txt";
 
@@ -73,5 +167,5 @@
             }
         });
 
-    }
-</script>
+    }*/
+</script> 
