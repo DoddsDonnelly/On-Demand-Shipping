@@ -1,5 +1,5 @@
 [
-        {
+  {
             "companyName": "ABC Company",
             "product": {
                 "number": "1260T",

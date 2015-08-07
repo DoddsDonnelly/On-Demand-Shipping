@@ -51,6 +51,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "images", "images", "{1D2C64
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "data", "data", "{B414E3EF-F7A9-4344-8F08-4CA5C8F2A47E}"
 	ProjectSection(SolutionItems) = preProject
+		data\onDemandShip.json = data\onDemandShip.json
 		data\onDemandShip.txt = data\onDemandShip.txt
 	EndProjectSection
 EndProject
