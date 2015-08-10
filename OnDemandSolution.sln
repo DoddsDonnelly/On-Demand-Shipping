@@ -70,10 +70,10 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "ViewModel", "ViewModel", "{
 		viewModel\knockout.js = viewModel\knockout.js
 	EndProjectSection
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "View", "View", "{9A25CAB8-059F-4AC0-8C40-4E374EC9264E}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Control", "Control", "{9A25CAB8-059F-4AC0-8C40-4E374EC9264E}"
 	ProjectSection(SolutionItems) = preProject
-		Form.html = Form.html
-		Widget.html = Widget.html
+		Control\Form.html = Control\Form.html
+		Control\Widget.html = Control\Widget.html
 	EndProjectSection
 EndProject
 Global

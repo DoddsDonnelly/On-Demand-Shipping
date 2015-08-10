@@ -1,17 +1,17 @@
 // JavaScript source code
 
-    //The Model
+   /* //The Model
     var onDemandShipmentData = [
-    new onDemandShipment({ companyName: "Joe", product: { number: "6390", name: "WOW Cube" }, fabric: { color: "Black", weight: "1200d" }, art: "Page", quantity: "21" }),
-    new onDemandShipment({ companyName: "Todd", product: { number: "6390", name: "WOW Cube" }, fabric: { color: "Black", weight: "1200d" }, art: "Chapman", quantity: "43" }),
-    new onDemandShipment({ companyName: "Lenard", product: { number: "6390", name: "WOW Cube" }, fabric: { color: "Black", weight: "1200d" }, art: "Haggard", quantity: "37" }),
-    new onDemandShipment({ companyName: "John", product: { number: "6390", name: "WOW Cube" }, fabric: { color: "Black", weight: "1200d" }, art: "Armstrong", quantity: "28" }),
-    new onDemandShipment({ companyName: "Mark", product: { number: "6390", name: "WOW Cube" }, fabric: { color: "Black", weight: "1200d" }, art: "Ramirez", quantity: "27" }),
-    new onDemandShipment({ companyName: "Cameron", product: { number: "6390", name: "WOW Cube" }, fabric: { color: "Black", weight: "1200d" }, art: "Philip", quantity: "34" }),
-    new onDemandShipment({ companyName: "Andre", product: { number: "6390", name: "WOW Cube" }, fabric: { color: "Black", weight: "1200d" }, art: "Spencer", quantity: "41" }),
-    new onDemandShipment({ companyName: "Heath", product: { number: "6390", name: "WOW Cube" }, fabric: { color: "Black", weight: "1200d" }, art: "Person", quantity: "33" }),
-    new onDemandShipment({ companyName: "Mark", product: { number: "6390", name: "WOW Cube" }, fabric: { color: "Black", weight: "1200d" }, art: "Greenwood", quantity: "24" }),
-    new onDemandShipment({ companyName: "Allen", product: { number: "6390", name: "WOW Cube" }, fabric: { color: "Black", weight: "1200d" }, art: "Spencer", quantity: "33" })];
+    new onDemandShipment({ companyName: "ABC Company", product: { number: "6390", name: "WOW Cube" }, fabric: { color: "Black", weight: "1200d" }, art: "Page", quantity: "21" }),
+    new onDemandShipment({ companyName: "ABC Company", product: { number: "6500", name: "Small Square Table Drape" }, fabric: { color: "Black", weight: "Bronco" }, art: "785Table", quantity: "43" }),
+    new onDemandShipment({ companyName: "Global Trading", product: { number: "1240", name: "Two Bottle" }, fabric: { color: "Black", weight: "1000d" }, art: "Cape15", quantity: "37" }),
+    new onDemandShipment({ companyName: "Brand Classics", product: { number: "6500", name: "Small Square Table Drape" }, fabric: { color: "Orange", weight: "Bronco" }, art: "ArmTable", quantity: "28" }),
+    new onDemandShipment({ companyName: "Some Company", product: { number: "6390", name: "WOW Cube" }, fabric: { color: "Black", weight: "1200d" }, art: "Ramirez", quantity: "27" }),
+    new onDemandShipment({ companyName: "Test Name", product: { number: "1240V", name: "Vintage Two Bottle" }, fabric: { color: "Red", weight: "600d" }, art: "Brands09", quantity: "34" }),
+    new onDemandShipment({ companyName: "Brands Inc", product: { number: "1260", name: "Six Bottle Salesperson" }, fabric: { color: "Black", weight: "100d" }, art: "Spencer", quantity: "41" }),
+    new onDemandShipment({ companyName: "785 Trading", product: { number: "6390", name: "WOW Cube" }, fabric: { color: "Black", weight: "1000d" }, art: "Person", quantity: "33" }),
+    new onDemandShipment({ companyName: "Retail", product: { number: "1224", name: "Four Bottle Salesperson" }, fabric: { color: "Black", weight: "600d" }, art: "Greenwood", quantity: "24" }),
+    new onDemandShipment({ companyName: "785 Trading", product: { number: "6390", name: "WOW Cube" }, fabric: { color: "Black", weight: "1000d" }, art: "Spencer", quantity: "33" })];
 
     function onDemandShipment(data) {
         this.companyName = data.companyName;
@@ -21,7 +21,32 @@
         this.fabricWeight = data.fabric.weight;
         this.art = data.art;
         this.quantity = data.quantity;
+    } */
+
+
+	var xmlhttp = new XMLHttpRequest();
+    var url = "http://doddsdonnelly.github.io/On-Demand-Shipping-Widget/data/onDemandShip.txt";
+
+    xmlhttp.onreadystatechange = function () {
+        if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
+            var myArr = JSON.parse(xmlhttp.responseText);
+            myFunction(myArr);
+        }
     }
+
+    xmlhttp.open("GET", url, true);
+    xmlhttp.send();
+
+	    function onDemandShipment(data) {
+        this.companyName = data.companyName;
+        this.productName = data.product.name;
+        this.productNumber = data.product.number;
+        this.fabricColor = data.fabric.color;
+        this.fabricWeight = data.fabric.weight;
+        this.art = data.art;
+        this.quantity = data.quantity;
+    }
+
     //The ViewModel
     function viewModel() {
         // Data
