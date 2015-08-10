@@ -62,7 +62,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "data", "data", "{68704F6E-C
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "ViewModel", "ViewModel", "{B1106E7A-96BC-41F7-A27B-E10406219D7E}"
 	ProjectSection(SolutionItems) = preProject
-		json.js = json.js
+		viewModel\json.js = viewModel\json.js
 		knockout.js = knockout.js
 	EndProjectSection
 EndProject
