@@ -51,12 +51,19 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "images", "images", "{1D2C64
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "data", "data", "{B414E3EF-F7A9-4344-8F08-4CA5C8F2A47E}"
 	ProjectSection(SolutionItems) = preProject
+		data\onDemandShip.json = data\onDemandShip.json
 		data\onDemandShip.txt = data\onDemandShip.txt
 	EndProjectSection
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "data", "data", "{68704F6E-C78B-4B93-B48F-BAA020BC0769}"
 	ProjectSection(SolutionItems) = preProject
 		data\onDemandShip.txt = data\onDemandShip.txt
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "ViewModel", "ViewModel", "{B1106E7A-96BC-41F7-A27B-E10406219D7E}"
+	ProjectSection(SolutionItems) = preProject
+		viewModel\json.js = viewModel\json.js
+		knockout.js = knockout.js
 	EndProjectSection
 EndProject
 Global
@@ -72,5 +79,6 @@ Global
 		{1D2C6441-135E-4110-A5C4-32A483092103} = {E5FCC1EF-E642-4CBD-AE91-C01AA12E31B2}
 		{B414E3EF-F7A9-4344-8F08-4CA5C8F2A47E} = {E5FCC1EF-E642-4CBD-AE91-C01AA12E31B2}
 		{68704F6E-C78B-4B93-B48F-BAA020BC0769} = {441AA07D-28FB-4617-AF03-4CA5D0D2587A}
+		{B1106E7A-96BC-41F7-A27B-E10406219D7E} = {E5FCC1EF-E642-4CBD-AE91-C01AA12E31B2}
 	EndGlobalSection
 EndGlobal

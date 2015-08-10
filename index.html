@@ -8,12 +8,35 @@
 <body class="a4-color" style="height:100%; width:100%">
     <div class="LeftFourPane">
         <div class="radius10 level1 demo">
-            <div class="notification radius30 a1-color level1"><p class="whiteText thick dsCount"></p></div>
+            <div class="notification radius30 a1-color level1"><p class="whiteText thick dsCount" data-bind="text: allOnDemandShipments().length"></p></div>
             <div class="m1-color tRadius10">
                 <h3 class="pad2 whiteText">On Demand Shipping</h3>
             </div>
-            <div class="l1-color bRadius10">
-                <div id="onDShipping">
+            <div class="l1-color bRadius10" data-bind="if: allOnDemandShipments().length">
+                <div id="onDShipping" data-bind="foreach: allOnDemandShipments">
+                    <details>
+                        <summary class="dsArrow">
+                            <section class="pad2 ">
+                                <a href="" class="fa fa-pencil dsIcon"></a>
+                                <a href="" class="fa fa-truck dsIcon"></a>
+                                <p class="thick dsCompanyName" data-bind="text: companyName"></p>
+                                <span class="thick dsProductNumber accentText" data-bind="text: productNumber"></span>
+                                <div class="clr"></div>
+                            </section>
+                        </summary>
+                        <div class="l2-color">
+                            <div class="chevron">
+                                <img class="element" src="images\chevron.png" />
+                                <p class="m-font thick overlayContent" data-bind="text: quantity"></p>
+                            </div>
+                            <section class="dsText">
+                                <p class="thicker dsProductTitle" data-bind="text: productName"></p>
+                                <p><span class="thick">Fabric: </span><span data-bind="text: productNumber"></span> <span data-bind="text: fabricColor"></span></p>
+                                <p><span class="thick">Art: </span><span data-bind="text: art"></span></p>
+                            </section>
+                            <div class="clr"></div>
+                        </div>
+                    </details>
                 </div>
                 <p></p>
             </div>
@@ -23,44 +46,11 @@
 </body>
 </html>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.0.0-alpha1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/knockout/3.3.0/knockout-min.js"></script>
 <script src="scripts\jquery.details.min.js"></script>
+<script src="ViewModel\knockout.js"></script>
 <script>
-    var xmlhttp = new XMLHttpRequest();
-    var url = "http://doddsdonnelly.github.io/On-Demand-Shipping-Widget/data/onDemandShip.txt";
-
-    // Json data calls 
-    xmlhttp.onreadystatechange = function () {
-        if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
-            var myArr = JSON.parse(xmlhttp.responseText);
-            myFunction(myArr);
-        }
-    }
-
-    xmlhttp.open("GET", url, true);
-    xmlhttp.send();
-
-     // Prints results 
-    function myFunction(arr) {
-        var out = "";
-        var i;
-        for (i = 0; i < arr.length; i++) {
-            out += '<details><summary class="dsArrow"><section class="pad2 "><a href="" class="fa fa-pencil dsIcon"></a><a href="" class="fa fa-truck dsIcon"></a><p class="thick dsCompanyName">' + arr[i].companyName
-                + '</p><span class="thick dsProductNumber accentText">' + arr[i].product.number
-                + '</span><div class="clr"></div></section></summary><div class="l2-color"><div class="chevron"><img class="element" src="images/chevron.png" /><p class="m-font thick overlayContent">' + arr[i].quantity
-                + '</p></div><section class="dsText"><p class="thicker dsProductTitle">' + arr[i].product.name
-            + '</p><p><span class="thick">Fabric: </span>' + arr[i].fabric.name
-            + ' ' + arr[i].fabric.color
-            + '</p><p><span class="thick">Art: </span>' + arr[i].art
-            + '</p></section><div class="clr"></div></div></details>';
-        }
-        document.getElementById("onDShipping").innerHTML = out;
-
-        // Counts array and logs results to notification
-        var count = Object.keys(arr).length
-        $('.dsCount').prepend(count);
-
-
-        // Add conditional class name based on support
+            // Add conditional class name based on support
         $('#onDShipping').addClass($.fn.details.support ? 'details' : 'no-details');
 
         // Emulate <details> where necessary and enable open/close event handlers
@@ -75,6 +65,4 @@
                 console.log('closed');
             }
         });
-
-    }
 </script>
