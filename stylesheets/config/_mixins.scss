@@ -1,0 +1,177 @@
+﻿//// Mix-Ins
+// @include variable to use
+
+//// Border Prefixes
+// @include border-radius(3px);
+@mixin border-radius($radius) {
+    -webkit-border-radius: $radius;
+    -moz-border-radius: $radius;
+    border-radius: $radius;
+}
+
+// @include bottom-left-radius(3px);
+@mixin border-bottom-left-radius($px) {
+    -moz-border-radius-bottomleft: $px;
+    -webkit-border-bottom-left-radius: $px;
+    border-bottom-left-radius: $px;
+}
+
+// @include border-bottom-right-radius(4px);
+@mixin border-bottom-right-radius($px) {
+    -moz-border-radius-bottomright: $px;
+    -webkit-border-bottom-right-radius: $px;
+    border-bottom-right-radius: $px;
+}
+
+// Transition Prefixes
+// @include transition( all 0.5s ease);
+@mixin transition($args...) {
+    -webkit-transition: $args;
+    -moz-transition: $args;
+    -o-transition: $args;
+    transition: $args;
+}
+
+//// Transform Prefixes
+// @include transform(scale 1.05);
+@mixin transform($value...) {
+    -webkit-transform: $value;
+    -ms-transform: $value;
+    -moz-transform: $value;
+    -o-transform: $value;
+    transform: $value;
+}
+
+// Translate3d
+// @include translate3d(0 0 150px);
+@mixin translate3d( $translate-x: 0, $translate-y: 0, $translate-z: 0) {
+    -webkit-transform: translate3d($translate-x, $translate-y, $translate-z);
+    -ms-transform: translate3d($translate-x, $translate-y, $translate-z);
+    -moz-transform: translate3d($translate-x, $translate-y, $translate-z);
+    -o-transform: translate3d($translate-x, $translate-y, $translate-z);
+    transform: translate3d($translate-x, $translate-y, $translate-z);
+}
+
+// Transform-style
+// @include transform-style(scale 1.05);
+@mixin transform-style($value) {
+    -webkit-transform-style: $value;
+    transform-style: $value;
+}
+
+//// Opacity Prefixes
+// @include opacity(.5);
+@mixin opacity($opacity) {
+    opacity: $opacity;
+    $opacity-ie: $opacity * 100;
+    filter: alpha(opacity=$opacity-ie); //IE8
+}
+
+//// Box Prefixes
+// Box Shadow Prefix
+// @include box-shadow(1px,1px,1px,0, #999);
+@mixin box-shadow($args...) {
+    -webkit-box-shadow: $args;
+    -moz-box-shadow: $args;
+    box-shadow: $args;
+}
+
+// Box Sizing Prefix
+// @include box-sizing(border-box);
+@mixin box-sizing($value) {
+    -webkit-box-sizing: $value;
+    -moz-box-sizing: $value;
+    box-sizing: $value;
+}
+
+//// Text-Size-Adjust Prefixes
+// @include text-size-adjust(none);
+@mixin text-size-adjust($value) {
+    -webkit-text-size-adjust: $value;
+    -moz-text-size-adjust: $value;
+    -ms-text-size-adjust: $value;
+    text-size-adjust: $value;
+}
+
+//// Scrollbar Prefixes
+// @include scrollbar-arrow-color(#ebedf0);
+@mixin scrollbar-arrow-color ($color) {
+    -ms-scrollbar-arrow-color: $color;
+    scrollbar-arrow-color: $color;
+}
+
+// @include scrollbar-3dlight-color(#ebedf0);
+@mixin scrollbar-3dlight-color ($color) {
+    -ms-scrollbar-3dlight-color: $color;
+    scrollbar-3dlight-color: $color;
+}
+
+// @include scrollbar-darkshadow-color(#ebedf0);
+@mixin scrollbar-darkshadow-color ($color) {
+    -ms-scrollbar-darkshadow-color: $color;
+    scrollbar-darkshadow-color: $color;
+}
+
+// @include scrollbar-base-color(#ebedf0);
+@mixin scrollbar-base-color ($color) {
+    -ms-scrollbar-base-color: $color;
+    scrollbar-base-color: $color;
+}
+
+// @include scrollbar-shadow-color(#ebedf0);
+@mixin scrollbar-shadow-color ($color) {
+    -ms-scrollbar-shadow-color: $color;
+    scrollbar-shadow-color: $color;
+}
+
+// @include scrollbar-track-color(#ebedf0);
+@mixin scrollbar-track-color ($color) {
+    -ms-scrollbar-track-color: $color;
+    scrollbar-track-color: $color;
+}
+
+//// Perspective Prefixes
+// @include perspective(1000px);
+@mixin perspective ($px) {
+    -webkit-perspective: $px;
+    -moz-perspective: $px;
+    -ms-perspective: $px;
+    perspective: $px;
+}
+
+//// Animation Prefixes
+// @include animation(none);
+@mixin animation ($value) {
+    -webkit-animation: $value;
+    -moz-animation: $value;
+    -o-animation: $value;
+    animation: $value;
+}
+
+// @include animation(5s);
+@mixin animation-delay ($value) {
+    -webkit-animation-delay: $value;
+    -moz-animation-delay: $value;
+    -o-animation-delay: $value;
+    animation-delay: $value;
+}
+
+// Margins Styles
+// @include no-margin;
+@mixin no-margin {
+    margin: 0;
+    padding: 0;
+}
+
+
+// Circle
+
+@mixin circle($width, $color, $border ) {
+  width: $width;
+  height: $width;
+  background: $color;
+  border: $border;
+  -webkit-border-radius: $width/2;
+     -moz-border-radius: $width/2;
+          border-radius: $width/2;
+}

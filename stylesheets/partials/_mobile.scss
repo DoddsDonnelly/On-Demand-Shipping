@@ -1,0 +1,278 @@
+@import "../config/variables";
+@import "../config/mixins";
+
+/* Mobile */
+
+@media handheld, only screen and (max-width: 767px) {
+    body {
+        font-size: $s-font;
+        @include text-size-adjust(none);
+    }
+
+    .fleft, .fright {
+        float: none;
+    }
+
+    .row, body, .container {
+        width: 100%;
+        min-width: 0;
+        margin-left: 0;
+        margin-right: 0;
+        padding-left: 0;
+        padding-right: 0;
+    }
+
+    .TopLeftPane, .TopRightPane, .TAColPane, .TBColPane, .TCColPane, .LeftPane, .CenterPane, .RightPane, .LeftThreePane, .RightNinePane, .RightThreePane, .LeftNinePane, .FullPane, .HeadPane, .LeftFourPane, .RightFourPane, .LeftEightPane, .RightEightPane {
+        width: auto;
+        margin: 0;
+        padding: 0;
+        clear: both;
+    }
+
+    .linksbox {
+        border-top: 0 $l3-color solid;
+        border-bottom: 0 $l3-color solid;
+    }
+
+    #dnntop {
+        float: left;
+        width: 100%;
+    }
+
+    .account .topbar {
+        display: none;
+    }
+
+    .account:hover .topbar {
+        display: block;
+        position: absolute;
+        z-index: 1000;
+        top: 52px;
+        right: 0;
+    }
+
+    .mgsscrollbox .list_scroll li img {
+        @include opacity(1);
+    }
+
+    #dnnheader .logo {
+        float: none;
+        text-align: center;
+        margin-top: 5px;
+        margin-bottom: 0;
+
+        img {
+            max-height: 80px;
+            float: left;
+            padding: 2px 0 4px 10px;
+        }
+
+        .registerGroup {
+            display: none;
+        }
+
+        span img {
+            padding: 0;
+        }
+    }
+
+
+    div.language-object {
+        margin-top: 14px;
+        float: right;
+        position: relative;
+        z-index: 1000;
+        padding: 2px 2px 2px 5px;
+
+
+        span.Language {
+            display: block;
+            text-align: left;
+            padding: 2px 0;
+            line-height: 18px;
+            clear: both;
+        }
+
+        .Language img {
+            border: 1px solid transparent;
+            float: left;
+            margin: 0 8px 0 0;
+            width: 20px;
+        }
+
+        .Language.selected img {
+            border-color: $l1-color;
+        }
+    }
+
+    .topbar div.language-object {
+        font-size: 0;
+        float: right;
+
+        .Language img {
+            border: 1px solid transparent;
+            float: left;
+            margin: 0;
+            width: 27px;
+        }
+    }
+
+    li.slideitem .desbox, .themestyle {
+        display: none;
+    }
+
+    .searchbox {
+        position: relative;
+        z-index: 200;
+        float: none;
+        width: 200px;
+        display: none;
+
+        #dnn_dnnSEARCH_txtSearch {
+            width: 160px;
+        }
+    }
+
+    .w49 {
+        width: 100%;
+    }
+
+    .grid3 {
+        width: auto;
+    }
+
+    a.backhome {
+        width: 8px;
+    }
+
+    a.tabback {
+        float: right;
+        margin-right: 10px;
+    }
+
+    .HeadPane {
+        margin: 0 10px;
+    }
+
+    #dnnbreader .fleft {
+        margin-left: 10px;
+        float: left;
+    }
+
+    ul.sitemap {
+        width: 20%;
+        float: left;
+        margin: 0 0 0 20px;
+        padding: 0;
+    }
+
+    /*Scroll Case*/
+    .scroolmember a.browse, .scroolmember a.nextmember,
+    .scroolmember a.prevmember {
+        display: none;
+    }
+
+    .list-wrapper .listbox {
+        width: auto;
+        float: none;
+        margin-right: 0;
+    }
+
+    .grid_8 {
+        float: none;
+        width: auto;
+    }
+
+    .grid_16 {
+        float: none;
+        width: auto;
+    }
+
+    .workteam {
+        width: 40%;
+        float: left;
+    }
+
+    div.dnnForm {
+        min-width: 1px;
+        width: 240px;
+        margin: 0 auto;
+    }
+
+    div.dnnLogin div.dnnFormItem {
+        width: auto;
+        min-width: 0;
+    }
+
+    div.dnnLogin div.LoginPanel {
+        width: auto;
+    }
+
+    div.dnnLogin div.dnnLoginRememberMe,
+    div.dnnLogin p * {
+        text-align: left;
+        padding: 0;
+        margin: 0 0 0 7px;
+    }
+
+
+    /*Universal class to hide on mobile*/
+    .mobileHide {
+        display: none;
+    }
+}
+
+// Universal class to show on mobile
+@media handheld, only screen and (min-width: 767px) {
+    .mobileShow {
+        display: none;
+    }
+}
+
+@media handheld, only screen and (max-width: 720px) {
+    ul.sitemap {
+        width: 45%;
+        float: left;
+        margin: 0 0 0 20px;
+        padding: 0;
+    }
+}
+
+@media handheld, only screen and (max-width: 480px) {
+    ul.sitemap {
+        width: auto;
+        float: none;
+        margin: 0 0 0 10px;
+        padding: 0;
+    }
+}
+
+@media handheld, only screen and (max-width: 320px) {
+}
+
+/* ! Provide higher res assets for ipad   */
+@media only screen and (device-width:768px) {
+    .CurrentDate {
+        display: block;
+        float: left;
+    }
+}
+
+/* ========================================== */
+/* ! Provide higher res assets for iPhone 4   */
+/* ========================================== */
+@media only screen and (-webkit-min-device-pixel-ratio: 2) {
+    .CurrentDate {
+        display: block;
+        float: left;
+    }
+
+    div.mgsscrollbox .list_scroll li {
+        height: 120px;
+        width: 80px;
+    }
+
+    .mgsscrollbox .list_scroll li img {
+        width: 70px;
+    }
+}

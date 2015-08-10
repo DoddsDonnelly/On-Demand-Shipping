@@ -1,0 +1,46 @@
+﻿/* Job Central Style Sheet */
+// This version only untilzes partials that are needed for current product testing
+.debug{background:Green;}
+
+/* Configuration */
+@import "config/wine"; // Override for color theming
+@import "config/variables"; // Default Variables
+@import "config/mixins";
+
+
+/* Layout */
+//@import "partials/reset";
+//@import "partials/header"; // includes account, search, & register
+//@import "partials/content"; 
+//@import "partials/footer"; //includes language 
+
+/* Base */
+@import "partials/layout"; 
+@import "partials/typography";
+@import "partials/button";
+@import "partials/color";
+//@import "partials/list";
+//@import "partials/icons";
+//@import "partials/table";
+//@import "partials/tabs";
+//@import "partials/form";
+
+/* Component */
+//@import "partials/menu";
+@import "partials/widget"; 
+//@import "partials/container";
+//@import "partials/admin";
+//@import "partials/shopping"; 
+//@import "partials/imageSlider"; 
+//@import "partials/module";
+//@import "partials/marketing";
+@import "partials/mobile"; 
+//@import "partials/embroidery";
+
+/* Site Specific Component */
+
+/* Library */
+//@import "partials/jQueryUi";
+@import url(http://fonts.googleapis.com/css?family=Oswald|Yellowtail);
+@import url(http://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css);
+

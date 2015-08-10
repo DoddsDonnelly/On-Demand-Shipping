@@ -1,0 +1,62 @@
+﻿@import "../config/variables";
+@import "../config/mixins";
+
+/* Background Colors */
+
+.l1-color{
+    background-color:$l1-color;
+}
+.l2-color{
+    background-color:$l2-color;
+}
+.l3-color{
+    background-color:$l3-color;
+}
+.l4-color{
+    background-color:$l4-color;
+}
+.m1-color{
+    background-color:$m1-color;
+}
+.m2-color{
+    background-color:$m2-color;
+}
+.m3-color{
+    background-color:$m3-color;
+}
+.d1-color{
+    background-color:$d1-color;
+}
+.d2-color{
+    background-color:$d2-color;
+}
+.a1-color{
+    background-color:$a1-color;
+}
+.a2-color{
+    background-color:$a2-color;
+}
+.a3-color{
+    background-color:$a3-color;
+}
+.a4-color{
+    background-color:$a4-color;
+}
+
+/* Font Colors */
+.accentText {
+    color: $a1-color;
+}
+
+.whiteText {
+    color: $l1-color;
+}
+
+// Replaced by greyText for cohesion remove for site before deleting
+.greycolor {
+    color: $m1-color;
+}
+
+.greyText {
+    color: $m1-color;
+}
