@@ -1,0 +1,186 @@
+﻿@import "../config/variables";
+@import "../config/mixins";
+
+/* Form Styles */
+
+.forms {
+    position: relative;
+    padding: 5px 10px 5px 10px;
+
+    &:before,
+    &:after {
+        content: " ";
+        display: table;
+    }
+
+    &:after {
+        clear: both;
+    }
+
+    legend {
+        display: block;
+        padding: 20px 5px 5px 2px;
+        font-size: $xs-font;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        cursor: pointer;
+        color: $d2-color;
+    }
+
+    fieldset p input {
+        float: left;
+        width: 25px;
+    }
+
+    label {
+        display: block;
+        padding: 20px 5px 5px 2px;
+        font-size: $xs-font;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        cursor: pointer;
+        color: $d2-color;
+    }
+
+    input,
+    textarea {
+        line-height: 1.5;
+        font-size: $s-font;
+        padding: 4.5px 5px;
+        color: $m2-color;
+        display: block;
+        width: 99%;
+        background: transparent;
+    }
+
+    select {
+        line-height: 1.5;
+        font-size: $s-font;
+        padding: 4px 5px;
+        color: $m2-color;
+        display: block;
+        width: 101%;
+        background: transparent;
+
+        &:focus {
+            outline: none;
+        }
+    }
+
+    input,
+    textarea,
+    select {
+        border: 1px solid $d2-color;
+    }
+
+    textarea {
+        min-height: 200px;
+    }
+
+    input:focus,
+    textarea:focus,
+    label:active + input,
+    label:active + textarea {
+        outline: none;
+        box-shadow: $l4-color 0 0 5px;
+    }
+
+
+    button {
+        @include border-radius(4px);
+        padding: 3px 12px;
+        background: $l1-color;
+        font-weight: $thick;
+        text-decoration: none;
+        height: 35px;
+        margin: 8px 2px;
+
+        &.form-submit {
+            border: 2px #1B5E20 solid;
+            color: #1B5E20;
+
+            &:hover {
+                border: 2px #1B5E20 solid;
+                color: $l1-color;
+                text-shadow: 1px 1px 1px $d2-color;
+                background-color: #1B5E20;
+            }
+        }
+
+        &.form-delete {
+            border: 2px #B71C1C solid;
+            color: #B71C1C;
+
+            &:hover {
+                border: 2px #B71C1C solid;
+                color: $l1-color;
+                text-shadow: 1px 1px 1px $d2-color;
+                background-color: #B71C1C;
+            }
+        }
+    }
+
+    .form-submit-wrap {
+        text-align: center;
+        padding-top: 5px;
+        clear: both;
+    }
+}
+
+.required {
+    float: right;
+}
+
+// Alignment helper center of form
+// used on drop shop form
+.centerForm {
+    width: 33.3%;
+}
+
+@media only screen and (max-width: 760px), (min-device-width: 768px) and (max-device-width: 1024px) {
+    .centerForm {
+        width: 100%;
+    }
+}
+// webkit input fixes
+@media screen and (-webkit-min-device-pixel-ratio:0) {
+    .date {
+        height: 24px;
+    }
+}
+
+@media screen and (-webkit-min-device-pixel-ratio:0) {
+    .forms select {
+        padding: 6.5px 0;
+    }
+}
+// Placeholder Style
+#placeholder {
+    color: $l4-color;
+    font-style: italic;
+}
+
+::-webkit-input-placeholder { /* WebKit browsers */
+    color: $l4-color;
+    font-style: italic;
+}
+
+:-moz-placeholder { /* Mozilla Firefox 4 to 18 */
+    color: $l4-color;
+    font-style: italic;
+}
+
+::-moz-placeholder { /* Mozilla Firefox 19+ */
+    color: $l4-color;
+    font-style: italic;
+}
+
+:-ms-input-placeholder { /* Internet Explorer 10+ */
+    color: $l4-color;
+    font-style: italic;
+}
+
+:-ms-textarea-placeholder { /* Internet Explorer 10+ */
+    color: $l4-color;
+    font-style: italic;
+}

@@ -36,8 +36,14 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "partials", "partials", "{DF
 	ProjectSection(SolutionItems) = preProject
 		stylesheets\partials\_button.scss = stylesheets\partials\_button.scss
 		stylesheets\partials\_color.scss = stylesheets\partials\_color.scss
+		Stylesheets\partials\_form.scss = Stylesheets\partials\_form.scss
+		Stylesheets\partials\_icons.scss = Stylesheets\partials\_icons.scss
 		stylesheets\partials\_layout.scss = stylesheets\partials\_layout.scss
+		Stylesheets\partials\_list.scss = Stylesheets\partials\_list.scss
 		stylesheets\partials\_mobile.scss = stylesheets\partials\_mobile.scss
+		Stylesheets\partials\_reset.scss = Stylesheets\partials\_reset.scss
+		Stylesheets\partials\_table.scss = Stylesheets\partials\_table.scss
+		Stylesheets\partials\_tabs.scss = Stylesheets\partials\_tabs.scss
 		stylesheets\partials\_typography.scss = stylesheets\partials\_typography.scss
 		stylesheets\partials\_widget.scss = stylesheets\partials\_widget.scss
 	EndProjectSection
@@ -66,8 +72,9 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "data", "data", "{68704F6E-C
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "ViewModel", "ViewModel", "{B1106E7A-96BC-41F7-A27B-E10406219D7E}"
 	ProjectSection(SolutionItems) = preProject
+		viewModel\form.js = viewModel\form.js
 		viewModel\json.js = viewModel\json.js
-		knockout.js = knockout.js
+		viewModel\widget.js = viewModel\widget.js
 	EndProjectSection
 EndProject
 Global

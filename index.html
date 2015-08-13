@@ -1,56 +1,718 @@
-﻿<!doctype html>
-<html>
+﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
 <head>
-    <meta charset="utf-8">
+    <meta charset="utf-8" />
     <link rel="stylesheet" type="text/css" href="stylesheets\minify\jcSkin.min.css">
-    <title>On Demand Shipping Widget</title>
+    <title>On Demand Shipping Form</title>
 </head>
 <body class="a4-color" style="height:100%; width:100%">
-    <div class="LeftFourPane">
-        <div class="radius10 level1 demo">
-            <div class="notification radius30 a1-color level1"><p class="whiteText thick dsCount" data-bind="text: allOnDemandShipments().length"></p></div>
-            <div class="m1-color tRadius10">
-                <h3 class="pad2 whiteText">On Demand Shipping</h3>
+    <div class="row">
+        <div class="LeftFourPane fleft">
+            <div style="min-height:150px">
+                <center><p>Intended to be used as a standalone widget on the home page (or dashboard).  Clicking either the edit or ship button on the widget should load the customer and inventory specific item form.  The form should load on it own page not as a pop up.  <b>Internal site use only.</b></p></center>
             </div>
-            <div class="l1-color bRadius10" data-bind="if: allOnDemandShipments().length">
-                <div id="onDShipping" data-bind="foreach: allOnDemandShipments">
-                    <details>
-                        <summary class="dsArrow">
-                            <section class="pad2 ">
-                                <a href="" class="fa fa-pencil dsIcon"></a>
-                                <a href="" class="fa fa-truck dsIcon"></a>
-                                <p class="thick dsCompanyName" data-bind="text: companyName"></p>
-                                <span class="thick dsProductNumber accentText" data-bind="text: productNumber"></span>
-                                <div class="clr"></div>
-                            </section>
-                        </summary>
-                        <div class="l2-color">
-                            <div class="chevron">
-                                <img class="element" src="images\chevron.png" />
-                                <p class="m-font thick overlayContent" data-bind="text: quantity"></p>
-                            </div>
-                            <section class="dsText">
-                                <p class="thicker dsProductTitle" data-bind="text: productName"></p>
-                                <p><span class="thick">Fabric: </span><span data-bind="text: productNumber"></span> <span data-bind="text: fabricColor"></span></p>
-                                <p><span class="thick">Art: </span><span data-bind="text: art"></span></p>
-                            </section>
-                            <div class="clr"></div>
-                        </div>
-                    </details>
+            <!-- Start of widget coding -->
+            <div class="radius10 level1">
+                <div class="notification radius30 a1-color level1"><p class="whiteText thick dsCount" data-bind="text: allOnDemandShipments().length"></p></div>
+                <div class="m1-color tRadius10">
+                    <h3 class="pad2 whiteText">On Demand Shipping</h3>
                 </div>
-                <p></p>
+                <div class="l1-color bRadius10" data-bind="if: allOnDemandShipments().length">
+                    <div id="onDShipping" data-bind="foreach: allOnDemandShipments">
+                        <details>
+                            <summary class="dsArrow">
+                                <section class="pad2 ">
+                                    <a href="" class="fa fa-pencil dsIcon"></a>
+                                    <a href="" class="fa fa-truck dsIcon"></a>
+                                    <p class="thick dsCompanyName" data-bind="text: companyName"></p>
+                                    <span class="thick dsProductNumber accentText" data-bind="text: productNumber"></span>
+                                    <div class="clr"></div>
+                                </section>
+                            </summary>
+                            <div class="l2-color">
+                                <div class="chevron">
+                                    <img class="element" src="images\chevron.png" />
+                                    <p class="m-font thick overlayContent" data-bind="text: quantity"></p>
+                                </div>
+                                <section class="dsText">
+                                    <p class="thicker dsProductTitle" data-bind="text: productName"></p>
+                                    <p><span class="thick">Fabric: </span><span data-bind="text: productNumber"></span> <span data-bind="text: fabricColor"></span></p>
+                                    <p><span class="thick">Art: </span><span data-bind="text: art"></span></p>
+                                </section>
+                                <div class="clr"></div>
+                            </div>
+                        </details>
+                    </div>
+                    <p></p>
+                </div>
             </div>
+            <!-- End of widget coding -->
+        </div>
+        <div class="RightEightPane fright">
+            <div style="min-height:150px">
+                <center><p>Inventory and item specific form.  History should load all shipped and pending orders that are specific only to logged in customer or reference customers.  If customer has multiple inventory items this should only load the specific item selected.  <b>Tracking tab should be visible only on internal site, all other tabs need to be visible on both internal and external sites</b></p></center>
+            </div>
+            <!-- Start of form coding -->
+            <div class="tabsContainter radius4 level1">
+                <div class="tabs effect-2">
+                    <!-- tab-title -->
+                    <input name="tab" id="tab-1" type="radio" checked="checked">
+                    <span href="#tab-item-1">
+                        <i class="fa fa-file-pdf-o"></i><span>History</span>
+                    </span>
+                    <input name="tab" id="tab-2" type="radio">
+                    <span href="#tab-item-2">
+                        <i class="fa fa-plus"></i><span>Add New</span>
+                    </span>
+                    <input name="tab" id="tab-3" type="radio">
+                    <span href="#tab-item-3">
+                        <i class="fa fa-pencil"></i><span>Edit Existing</span>
+                    </span>
+                    <input name="tab" id="tab-4" type="radio">
+                    <span href="#tab-item-4">
+                        <i class="fa fa-lock"></i><span>Tracking</span>
+                    </span>
+                    <input name="tab" disabled="" class="disabled" id="tab-5" type="radio" readonly="">
+                    <span href="#tab-item-5">
+                    </span>
+
+                    <!-- tab-content -->
+                    <div class="tab-content">
+                        <section id="tab-item-1">
+                            <!--Tab 1 for Both Sites-->
+                            <br>
+                            <div>
+
+                                <h3>1224 Four Bottle Sale's Bag, 1000D Black, NY13 emb</h3>
+                                <br>
+                                <table class="nestedTable">
+                                    <thead>
+                                        <tr>
+                                            <th class="spacer tinyCol">
+                                                <br>
+                                            </th>
+                                            <th class="smallCol">Qty</th>
+                                            <th class="largeCol">Name</th>
+                                            <th class="xlargeCol">Company</th>
+                                            <th>FedEx #</th>
+                                            <th>Ship Date</th>
+                                            <th class="mediumCol">Tracking #</th>
+                                            <th>Cost</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td class="spacer">
+                                                <i class="showMore fa fa-angle-double-right"></i>
+                                            </td>
+                                            <td data-label="Quantity:">1</td>
+                                            <td data-label="Name:">John Doe</td>
+                                            <td data-label="Company:">
+                                                <br>
+                                            </td>
+                                            <td data-label="FedEx #">78945</td>
+                                            <td data-label="Ship Date:">3/20/14</td>
+                                            <td data-label="Tracking #">5682 2531 1258</td>
+                                            <td data-label="Cost:">$18.35</td>
+                                        </tr>
+                                        <tr class="display-none hideOnMobile">
+                                            <td class="spacer header">
+                                                <br>
+                                            </td>
+                                            <td class="spacer header">
+                                                <br>
+                                            </td>
+                                            <td class="header">Street</td>
+                                            <td class="header">City</td>
+                                            <td class="header">State</td>
+                                            <td class="header">Zip Code</td>
+                                            <td class="header">Phone #</td>
+                                            <td class="spacer header">
+                                                <br>
+                                            </td>
+                                        </tr>
+                                        <tr class="display-none">
+                                            <td class="spacer" ><br></td>
+                                            <td class="spacer">
+                                                <br>
+                                            </td>
+                                            <td data-label="Street:">528 East 85nd Street</td>
+                                            <td data-label="City:">New York</td>
+                                            <td data-label="State:">NY</td>
+                                            <td data-label="Zip Code:">10022</td>
+                                            <td data-label="Phone #">(916)258-5566</td>
+                                            <td class="spacer">
+                                                <br>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td class="spacer">
+                                                <i class="showMore fa fa-angle-double-right"></i>
+                                            </td>
+                                            <td data-label="Quantity:">4</td>
+                                            <td data-label="Name:">Ted Bob</td>
+                                            <td data-label="Company:">Some Company</td>
+                                            <td data-label="FedEx #">125325</td>
+                                            <td data-label="Ship Date:">4/13/14</td>
+                                            <td data-label="Tracking #">5993 7894 4562</td>
+                                            <td data-label="Cost:">$58.40</td>
+                                        </tr>
+                                        <tr class="display-none hideOnMobile">
+                                            <td class="spacer header">
+                                                <br>
+                                            </td>
+                                            <td class="spacer header">
+                                                <br>
+                                            </td>
+                                            <td class="header">Street</td>
+                                            <td class="header">City</td>
+                                            <td class="header">State</td>
+                                            <td class="header">Zip Code</td>
+                                            <td class="header">Phone #</td>
+                                            <td class="spacer header">
+                                                <br>
+                                            </td>
+                                        </tr>
+                                        <tr class="display-none">
+                                            <td class="spacer">
+                                                <br>
+                                            </td>
+                                            <td class="spacer">
+                                                <br>
+                                            </td>
+                                            <td data-label="Street:">7898 Company Ave</td>
+                                            <td data-label="City:">Norwood</td>
+                                            <td data-label="State:">MA</td>
+                                            <td data-label="Zip Code:">02062</td>
+                                            <td data-label="Phone #">(800)123-7894</td>
+                                            <td class="spacer">
+                                                <br>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td class="spacer">
+                                                <i class="showMore fa fa-angle-double-right"></i>
+                                            </td>
+                                            <td data-label="Quantity:">17</td>
+                                            <td data-label="Name:">Jane More</td>
+                                            <td data-label="Company:">
+                                                ABC llc
+                                            </td>
+                                            <td data-label="FedEx #">Shipper</td>
+                                            <td data-label="Ship Date:">1/20/15</td>
+                                            <td data-label="Tracking #">9882 4568 1258</td>
+                                            <td data-label="Cost:">$108.35</td>
+                                        </tr>
+                                        <tr class="display-none hideOnMobile">
+                                            <td class="spacer header">
+                                                <br>
+                                            </td>
+                                            <td class="spacer header">
+                                                <br>
+                                            </td>
+                                            <td class="header">Street</td>
+                                            <td class="header">City</td>
+                                            <td class="header">State</td>
+                                            <td class="header">Zip Code</td>
+                                            <td class="header">Phone #</td>
+                                            <td class="spacer header">
+                                                <br>
+                                            </td>
+                                        </tr>
+                                        <tr class="display-none">
+                                            <td class="spacer">
+                                                <br>
+                                            </td>
+                                            <td class="spacer">
+                                                <br>
+                                            </td>
+                                            <td data-label="Street:">789 E Street</td>
+                                            <td data-label="City:">Hollywood</td>
+                                            <td data-label="State:">CA</td>
+                                            <td data-label="Zip Code:">17822</td>
+                                            <td data-label="Phone #">(987)123-5566</td>
+                                            <td class="spacer">
+                                                <br>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td class="spacer">
+                                                <i class="showMore fa fa-angle-double-right"></i>
+                                            </td>
+                                            <td data-label="Quantity:">44</td>
+                                            <td data-label="Name:"><br></td>
+                                            <td data-label="Company:">Company Only</td>
+                                            <td data-label="FedEx #">456258</td>
+                                            <td data-label="Ship Date:">3/13/15</td>
+                                            <td data-label="Tracking #">9999 9454 2222</td>
+                                            <td data-label="Cost:">$789.40</td>
+                                        </tr>
+                                        <tr class="display-none hideOnMobile">
+                                            <td class="spacer header">
+                                                <br>
+                                            </td>
+                                            <td class="spacer header">
+                                                <br>
+                                            </td>
+                                            <td class="header">Street</td>
+                                            <td class="header">City</td>
+                                            <td class="header">State</td>
+                                            <td class="header">Zip Code</td>
+                                            <td class="header">Phone #</td>
+                                            <td class="spacer header">
+                                                <br>
+                                            </td>
+                                        </tr>
+                                        <tr class="display-none">
+                                            <td class="spacer">
+                                                <br>
+                                            </td>
+                                            <td class="spacer">
+                                                <br>
+                                            </td>
+                                            <td data-label="Street:">1235 Pear Ave</td>
+                                            <td data-label="City:">Toko</td>
+                                            <td data-label="State:">Am</td>
+                                            <td data-label="Zip Code:">45862</td>
+                                            <td data-label="Phone #">(800)789-4594</td>
+                                            <td class="spacer">
+                                                <br>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td class="spacer">
+                                                <i class="showMore fa fa-angle-double-right"></i>
+                                            </td>
+                                            <td data-label="Quantity:">2</td>
+                                            <td data-label="Name:">Lisa Jefferson</td>
+                                            <td data-label="Company:">Long Company Name Test</td>
+                                            <td data-label="FedEx #">Shipper</td>
+                                            <td data-label="Ship Date:">
+                                                <span class="pending">...</span>
+                                            </td>
+                                            <td data-label="Tracking #">
+                                                <span class="pending">Pending</span>
+                                            </td>
+                                            <td data-label="Cost:">
+                                                <span class="pending">...</span>
+                                            </td>
+                                        </tr>
+                                        <tr class="display-none hideOnMobile">
+                                            <td class="spacer header">
+                                                <br>
+                                            </td>
+                                            <td class="spacer header">
+                                                <br>
+                                            </td>
+                                            <td class="header">Street</td>
+                                            <td class="header">City</td>
+                                            <td class="header">State</td>
+                                            <td class="header">Zip Code</td>
+                                            <td class="header">Phone #</td>
+                                            <td class="spacer header">
+                                                <br>
+                                            </td>
+                                        </tr>
+                                        <tr class="display-none">
+                                            <td class="spacer"></td>
+                                            <td class="spacer"></td>
+                                            <td data-label="Street:">78945 Street Place, Ste 456</td>
+                                            <td data-label="City:">Honolulu</td>
+                                            <td data-label="State:">HI</td>
+                                            <td data-label="Zip Code:">96819</td>
+                                            <td data-label="Phone #">(808)456-7851</td>
+                                            <td class="spacer"></td>
+                                        </tr>
+                                    </tbody>
+                                </table><hr />
+                                <center>
+                                    <div class="w25 fleft centerAlignment" id="total">
+                                        <p class="s-font thick">Ordered: 50</p>
+                                    </div>
+                                    <div class="w25 fleft centerAlignment">
+                                        <p class="s-font thick">Shipped: 6</p>
+                                    </div>
+                                    <div class="w25 fleft centerAlignment">
+                                        <p class="s-font thick">Balance: 49</p>
+                                    </div>
+                                    <div class="w25 fleft centerAlignment">
+                                        <p class="s-font thick">Cost: $76.75</p>
+                                    </div>
+                                </center>
+                                <br>
+                                <br>
+                            </div>
+                        </section>
+                        <section id="tab-item-2">
+                            <!--Tab 2 for both only-->
+                            <div class="forms panes">
+                                <label for="onFile">Shipping Address</label>
+                                <select name="onFile" onchange="useNewAddress(this)">
+                                    <option value="newAddress" selected="">New Address</option>
+                                    <option>
+                                        Laura Belocas
+
+                                        328 East 52nd Street
+                                        New York
+                                        NY
+                                        10022
+                                    </option>
+                                    <option>
+                                        Fred Migliero
+                                        Classic Wine Imports / Martignetti
+                                        975 University Ave
+                                        Norwood
+                                        MA
+                                        02062
+                                    </option>
+                                    <option>
+
+                                        Lynn Masuda
+                                        Southern Wine &amp; Spirits
+                                        155 Kapalulu Place, Ste 300
+                                        Honolulu
+                                        HI
+                                        96819
+
+                                    </option>
+                                </select>
+                                <div id="useAddress">
+                                    <label for="shippingName">First &amp; last name</label>
+                                    <input name="shippingName" id="shippingName" type="text" placeholder="John Smith">
+                                    <label for="company">Company</label>
+                                    <input name="company" id="company" type="text" placeholder="Company">
+                                    <label for="street">Street<span class="accentText">*</span></label>
+                                    <input name="street" id="street" required="" type="text" placeholder="Street">
+                                    <fieldset>
+                                        <div class="fleft TAColPane">
+                                            <label for="city">City<span class="accentText">*</span></label>
+                                            <input name="city" id="city" required="" type="text" placeholder="City">
+                                        </div>
+                                        <div class="fleft centerForm TBColPane">
+                                            <label for="state">State<span class="accentText">*</span></label>
+                                            <select name="state" required="">
+                                                <option disabled="" id="placeholder" selected="">State</option>
+                                                <option value="AL">Alabama</option>
+                                                <option value="AK">Alaska</option>
+                                                <option value="AZ">Arizona</option>
+                                                <option value="AR">Arkansas</option>
+                                                <option value="CA">California</option>
+                                                <option value="CO">Colorado</option>
+                                                <option value="CT">Connecticut</option>
+                                                <option value="DE">Delaware</option>
+                                                <option value="DC">District of Columbia</option>
+                                                <option value="FL">Florida</option>
+                                                <option value="GA">Georgia</option>
+                                                <option value="HI">Hawaii</option>
+                                                <option value="ID">Idaho</option>
+                                                <option value="IL">Illinois</option>
+                                                <option value="IN">Indiana</option>
+                                                <option value="IA">Iowa</option>
+                                                <option value="KS">Kansas</option>
+                                                <option value="KY">Kentucky</option>
+                                                <option value="LA">Louisiana</option>
+                                                <option value="ME">Maine</option>
+                                                <option value="MD">Maryland</option>
+                                                <option value="MA">Massachusetts</option>
+                                                <option value="MI">Michigan</option>
+                                                <option value="MN">Minnesota</option>
+                                                <option value="MS">Mississippi</option>
+                                                <option value="MO">Missouri</option>
+                                                <option value="MT">Montana</option>
+                                                <option value="NE">Nebraska</option>
+                                                <option value="NV">Nevada</option>
+                                                <option value="NH">New Hampshire</option>
+                                                <option value="NJ">New Jersey</option>
+                                                <option value="NM">New Mexico</option>
+                                                <option value="NY">New York</option>
+                                                <option value="NC">North Carolina</option>
+                                                <option value="ND">North Dakota</option>
+                                                <option value="OH">Ohio</option>
+                                                <option value="OK">Oklahoma</option>
+                                                <option value="OR">Oregon</option>
+                                                <option value="PA">Pennsylvania</option>
+                                                <option value="RI">Rhode Island</option>
+                                                <option value="SC">South Carolina</option>
+                                                <option value="SD">South Dakota</option>
+                                                <option value="TN">Tennessee</option>
+                                                <option value="TX">Texas</option>
+                                                <option value="UT">Utah</option>
+                                                <option value="VT">Vermont</option>
+                                                <option value="VA">Virginia</option>
+                                                <option value="WA">Washington</option>
+                                                <option value="WV">West Virginia</option>
+                                                <option value="WI">Wisconsin</option>
+                                                <option value="WY">Wyoming</option>
+                                            </select>
+                                        </div>
+                                        <div class="fright TBColPane">
+                                            <label for="zipCode">Zip Code<span class="accentText">*</span></label>
+                                            <input name="zipCode" id="zipCode" required="" type="number" placeholder="00000" pattern="(\d{5}([\-]\d{4})?)">
+                                        </div>
+                                        <div class="clr"></div>
+                                    </fieldset>
+
+                                    <div class="fleft TAColPane">
+                                        <label for="phoneNumber">Phone Number</label>
+                                        <input name="phoneNumber" id="phoneNumber" type="text" placeholder="999-999-9999">
+                                    </div>
+
+                                </div>
+                                <div class="fleft TAColPane">
+                                    <label for="quantity">Quantity to ship<span class="accentText">*</span></label>
+                                    <input name="quantity" id="quantity" required="" type="text" min="1" placeholder="12">
+                                </div>
+                                <div class="fright TBColPane">
+                                    <label for="fedExNumber">FedEx Number</label>
+                                    <input name="fedExNumber" id="fedExNumber" type="text" placeholder="000000000">
+                                    <center><small>Leave blank to be billed</small></center>
+                                </div>
+                                <div class="clr"></div>
+                                <div class="form-submit-wrap">
+                                    <button class="form-submit" type="submit"><i class="fa fa-check"></i><span class="hideOnMobile"> Submit</span></button>
+                                </div>
+                            </div>
+                            <div class="required">
+                                <small><span class="accentText">*Required</span></small><br>
+                            </div>
+                        </section>
+                        <section id="tab-item-3">
+                            <!--Tab 3 for both only-->
+                            <h5>Address changes to pending shipments must be made by phone.  Please call (800) 323-5013</h5>
+                            <div class="forms panes">
+                                <label for="onFile">Shipping Address</label>
+                                <select name="onFile" onchange="useNewAddress(this)">
+                                    <option value="newAddress" selected="">New Address</option>
+                                    <option>
+                                        Laura Belocas
+
+                                        328 East 52nd Street
+                                        New York
+                                        NY
+                                        10022
+                                    </option>
+                                    <option>
+                                        Fred Migliero
+                                        Classic Wine Imports / Martignetti
+                                        975 University Ave
+                                        Norwood
+                                        MA
+                                        02062
+                                    </option>
+                                    <option>
+
+                                        Lynn Masuda
+                                        Southern Wine &amp; Spirits
+                                        155 Kapalulu Place, Ste 300
+                                        Honolulu
+                                        HI
+                                        96819
+
+                                    </option>
+                                </select>
+                                <div id="useAddress">
+                                    <label for="shippingName">First &amp; last name</label>
+                                    <input name="shippingName" id="shippingName" type="text" placeholder="John Smith">
+                                    <label for="company">Company</label>
+                                    <input name="company" id="company" type="text" placeholder="Company">
+                                    <label for="street">Street<span class="accentText">*</span></label>
+                                    <input name="street" id="street" required="" type="text" placeholder="Street">
+                                    <fieldset>
+                                        <div class="fleft TAColPane">
+                                            <label for="city">City<span class="accentText">*</span></label>
+                                            <input name="city" id="city" required="" type="text" placeholder="City">
+                                        </div>
+                                        <div class="fleft centerForm TBColPane">
+                                            <label for="state">State<span class="accentText">*</span></label>
+                                            <select name="state" required="">
+                                                <option disabled="" id="placeholder" selected="">State</option>
+                                                <option value="AL">Alabama</option>
+                                                <option value="AK">Alaska</option>
+                                                <option value="AZ">Arizona</option>
+                                                <option value="AR">Arkansas</option>
+                                                <option value="CA">California</option>
+                                                <option value="CO">Colorado</option>
+                                                <option value="CT">Connecticut</option>
+                                                <option value="DE">Delaware</option>
+                                                <option value="DC">District of Columbia</option>
+                                                <option value="FL">Florida</option>
+                                                <option value="GA">Georgia</option>
+                                                <option value="HI">Hawaii</option>
+                                                <option value="ID">Idaho</option>
+                                                <option value="IL">Illinois</option>
+                                                <option value="IN">Indiana</option>
+                                                <option value="IA">Iowa</option>
+                                                <option value="KS">Kansas</option>
+                                                <option value="KY">Kentucky</option>
+                                                <option value="LA">Louisiana</option>
+                                                <option value="ME">Maine</option>
+                                                <option value="MD">Maryland</option>
+                                                <option value="MA">Massachusetts</option>
+                                                <option value="MI">Michigan</option>
+                                                <option value="MN">Minnesota</option>
+                                                <option value="MS">Mississippi</option>
+                                                <option value="MO">Missouri</option>
+                                                <option value="MT">Montana</option>
+                                                <option value="NE">Nebraska</option>
+                                                <option value="NV">Nevada</option>
+                                                <option value="NH">New Hampshire</option>
+                                                <option value="NJ">New Jersey</option>
+                                                <option value="NM">New Mexico</option>
+                                                <option value="NY">New York</option>
+                                                <option value="NC">North Carolina</option>
+                                                <option value="ND">North Dakota</option>
+                                                <option value="OH">Ohio</option>
+                                                <option value="OK">Oklahoma</option>
+                                                <option value="OR">Oregon</option>
+                                                <option value="PA">Pennsylvania</option>
+                                                <option value="RI">Rhode Island</option>
+                                                <option value="SC">South Carolina</option>
+                                                <option value="SD">South Dakota</option>
+                                                <option value="TN">Tennessee</option>
+                                                <option value="TX">Texas</option>
+                                                <option value="UT">Utah</option>
+                                                <option value="VT">Vermont</option>
+                                                <option value="VA">Virginia</option>
+                                                <option value="WA">Washington</option>
+                                                <option value="WV">West Virginia</option>
+                                                <option value="WI">Wisconsin</option>
+                                                <option value="WY">Wyoming</option>
+                                            </select>
+                                        </div>
+                                        <div class="fright TBColPane">
+                                            <label for="zipCode">Zip Code<span class="accentText">*</span></label>
+                                            <input name="zipCode" id="zipCode" required="" type="number" placeholder="00000" pattern="(\d{5}([\-]\d{4})?)">
+                                        </div>
+                                        <div class="clr"></div>
+                                    </fieldset>
+
+                                    <div class="fleft TAColPane">
+                                        <label for="phoneNumber">Phone Number</label>
+                                        <input name="phoneNumber" id="phoneNumber" type="text" placeholder="999-999-9999">
+                                    </div>
+
+                                </div>
+                                <div class="fleft TAColPane">
+                                    <label for="quantity">Quantity to ship<span class="accentText">*</span></label>
+                                    <input name="quantity" id="quantity" required="" type="text" min="1" placeholder="12">
+                                </div>
+                                <div class="fright TBColPane">
+                                    <label for="fedExNumber">FedEx Number</label>
+                                    <input name="fedExNumber" id="fedExNumber" type="text" placeholder="000000000">
+                                    <center><small>Leave blank to be billed</small></center>
+                                </div>
+                                <div class="clr"></div>
+                                <div class="form-submit-wrap">
+                                    <button class="form-submit" type="submit"><i class="fa fa-check"></i><span class="hideOnMobile"> Submit</span></button>
+                                </div>
+                            </div>
+                            <div class="required">
+                                <small><span class="accentText">*Required</span></small><br>
+                            </div>
+                        </section>
+                        <section id="tab-item-4">
+                            <!--Tab 4 for Job Central Only only-->
+                            <div class="forms panes">
+                                <label for="onFile">Address Shipped</label>
+                                <select name="onFile">
+                                    <option>
+                                        Lynn Masuda
+                                        Southern Wine &amp; Spirits
+                                        155 Kapalulu Place, Ste 300
+                                        Honolulu
+                                        HI
+                                        96819
+                                    </option>
+                                </select>
+                                <div class="fleft TAColPane">
+                                    <label for="shippingDate">Date Shipped<span class="accentText">*</span></label>
+                                    <input name="shippingDate" class="date" id="shippingDate" required="" type="date" placeholder="mm/dd/yy">
+                                </div>
+                                <div class="fleft TAColPane">
+                                    <label for="trackingNumber">Tracking Number<span class="accentText">*</span></label>
+                                    <input name="trackingNumber" id="trackingNumber" required="" type="text" placeholder="00000000000">
+                                </div>
+                                <div class="fright TBColPane">
+                                    <label for="cost">Cost</label>
+                                    <input name="cost" id="cost" type="text" placeholder="$00.00">
+                                </div>
+                                <div class="form-submit-wrap">
+                                    <button class="form-submit" type="submit"><i class="fa fa-check"></i><span class="hideOnMobile"> Submit</span></button>
+                                </div>
+                            </div>
+                            <div class="required">
+                                <small><span class="accentText">*Required</span></small><br>
+                            </div>
+                        </section>
+                    </div>
+                </div>
+            </div>
+            <!-- End of form coding -->
         </div>
     </div>
-    <div id="id01"></div>
 </body>
 </html>
+
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.0.0-alpha1/jquery.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/knockout/3.3.0/knockout-min.js"></script>
 <script src="scripts\jquery.details.min.js"></script>
-<script src="ViewModel/knockout.js"></script>
-<script>
-            // Add conditional class name based on support
+<script src="ViewModel\widget.js"></script>
+<script type="text/jscript">
+    // Form Script
+    // Jquery Required
+
+    //hide show new address div
+    function useNewAddress(select) {
+        if (select.value == 'newAddress') {
+            $("#useAddress").show()
+        } else {
+            $("#useAddress").hide();
+        }
+    }
+
+    //hide show Options
+    $(function () {
+        $('#changeSelect').change(function () {
+            $('.changeSelect').hide();
+            $('#' + $(this).val()).show();
+        });
+    });
+
+    function newArtFile(select) {
+        if (select.value == 'addNewArt') {
+            $("#NewArt").hide()
+        } else {
+            $("#NewArt").show();
+        }
+    }
+
+    function otherEmbUsage(select) {
+        if (select.value == 'otherUse') {
+            $("#otherNote").show()
+        } else {
+            $("#otherNote").hide();
+        }
+    }
+
+$(".showMore").click(function() {
+  var tr = $(this).parent().parent().nextAll(':lt(2)');
+      $(this).toggleClass('fa-angle-double-right fa-angle-double-down')
+  if (tr.is(".display-none")) {
+    tr.removeClass('display-none');
+  } else {
+    tr.addClass('display-none');
+  }
+})
+
+
+</script>
+
+<script type="text/javascript">
+    // Widget Script
+    // Knockout & Jquery Required; detail script required for ie fallback
+
+   // Add conditional class name based on support
         $('#onDShipping').addClass($.fn.details.support ? 'details' : 'no-details');
 
         // Emulate <details> where necessary and enable open/close event handlers

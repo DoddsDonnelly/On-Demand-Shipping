@@ -1,0 +1,136 @@
+﻿@import "../config/variables";
+@import "../config/mixins";
+
+/* Tabs */
+
+.disabled > input:hover + span {
+	background: $l3-color;
+}
+
+
+.ease {
+    @include transition(all .5s);
+}
+
+.tabsContainter {
+	width: 100%;
+	max-width: 1000px;
+    margin:0;
+}
+
+.tabs {
+	background: $l1-color;
+	position: relative;
+    padding:30px;
+    @include border-radius(4px);
+}
+
+.tabs > input,
+.tabs > span {
+	width: 20%;
+	height: 60px;
+	line-height: 60px;
+	position: absolute;
+	top: 0;
+}
+
+.tabs > input {
+	cursor: pointer;
+	@include opacity(0);
+	position: absolute;
+	z-index: 99;
+}
+
+.tabs > span {
+	background: $l3-color;
+	text-align: center;
+	overflow: hidden;
+}
+
+.tabs > span i,
+.tabs > span {
+            @include transform(all .5s);
+}
+
+.tabs > input:hover + span {
+	background: rgba(255,255,255,.1);
+}
+
+.tabs > input:checked + span {
+	background: $l1-color;
+        @include border-radius(4px);
+}
+
+.tabs > input:checked + span,
+.tabs > input:hover + span {
+	color: $a1-color;
+}
+
+#tab-1, #tab-1 + span {
+	left: 0;
+}
+
+#tab-2, #tab-2 + span {
+	left: 20%;
+}
+
+#tab-3, #tab-3 + span {
+	left: 40%;
+}
+
+#tab-4, #tab-4 + span {
+	left: 60%;
+}
+
+#tab-5, #tab-5 + span {
+	left: 80%;
+}
+
+.tab-content {
+	padding: 50px 0 0;
+	width: 100%;
+	min-height: 340px;
+}
+
+.tab-content section {
+	width: 100%;
+	display: none;
+}
+
+.tab-content section h1 {
+	margin-top: 15px;
+	font-size: 100px;
+	font-weight: 100;
+	text-align: center;
+}
+
+#tab-1:checked ~ .tab-content #tab-item-1  {
+	display: block;
+}
+
+#tab-2:checked ~ .tab-content #tab-item-2  {
+	display: block;
+}
+
+#tab-3:checked ~ .tab-content #tab-item-3  {
+	display: block;
+}
+
+#tab-4:checked ~ .tab-content #tab-item-4  {
+	display: block;
+}
+
+#tab-5:checked ~ .tab-content #tab-item-5  {
+	display: block;
+}
+
+.effect-2 span i{
+	padding-right: 15px;
+    width:30px
+}
+
+@media (max-width: 600px) {
+	.effect-2 span span {display: none;}
+	.effect-2 span i {padding: 0;}
+}
+
