@@ -1,6 +1,6 @@
 ﻿/* Job Central Style Sheet */
 // This version only untilzes partials that are needed for current product testing
-.debug{background:Green;}
+.debug{background:red;}
 
 /* Configuration */
 @import "config/wine"; // Override for color theming
@@ -9,7 +9,7 @@
 
 
 /* Layout */
-//@import "partials/reset";
+@import "partials/reset";
 //@import "partials/header"; // includes account, search, & register
 //@import "partials/content"; 
 //@import "partials/footer"; //includes language 
@@ -19,11 +19,11 @@
 @import "partials/typography";
 @import "partials/button";
 @import "partials/color";
-//@import "partials/list";
-//@import "partials/icons";
-//@import "partials/table";
-//@import "partials/tabs";
-//@import "partials/form";
+@import "partials/list";
+@import "partials/icons";
+@import "partials/table";
+@import "partials/tabs";
+@import "partials/form";
 
 /* Component */
 //@import "partials/menu";

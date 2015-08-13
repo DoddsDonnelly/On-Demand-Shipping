@@ -1,0 +1,337 @@
+﻿@import "../config/variables";
+@import "../config/mixins";
+
+/* Basic Table Styles */
+
+// Black Table
+.black_table {
+    border: 1px $d1-color solid;
+    border-right: none;
+
+    thead {
+        background: url('data:image/gif;base64,R0lGODlhBgAyANUAAAAAAP///zw8PDs7Ozo6Ojk5OTg4ODY2NjQ0NDMzMzIyMjAwMC4uLiwsLCsrKyoqKigoKCcnJyYmJiQkJCMjIyEhISAgIB4eHh0dHRwcHBoaGhkZGRgYGBcXFxYWFhQUFBMTExISEhERERAQEA8PDw4ODg0NDQwMDAsLCwoKCgkJCQgICAcHBwYGBgUFBQQEBAMDAwICAgEBAf///wAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACH5BAEAADMALAAAAAAGADIAAAaMQIFwOCgaCchkYck0OJ+HqBRBrSauWIV2y9UuvmCGeNwomx3o9GPNhrjfkbhcQq9P7niKfl/p+y2AgReDhBiGhxmJihqMjRuPkBySkx2Vlh6YmR+bnCCenyGhoiKkpSOnqCSqqyWtriawsSeztCi2tym5uiq8vb68K8HCLMTFxsQtycouzM3OzC/R0kEAOw==') /*images/bh.gif*/ 0 0 repeat-x;
+
+        th {
+            padding: 5px;
+            text-align: left;
+            color: $l1-color;
+        }
+    }
+
+    td {
+        border: 1px $d1-color solid;
+        border-bottom: none;
+        border-left: none;
+        padding: 5px;
+    }
+}
+
+// Grey Table
+.gray_table {
+    border: 1px $m2-color solid;
+
+    thead {
+        background: url('data:image/gif;base64,R0lGODlhBgAyANUAAAAAAP///319fXx8fHt7e3p6enl5eXh4eHd3d3Z2dnV1dXR0dHNzc3JycnFxcXBwcG9vb25ubm1tbWxsbGtra2pqamlpaWhoaGdnZ2ZmZmVlZWRkZGNjY2JiYmFhYWBgYF9fX15eXl1dXVxcXFtbW1paWllZWVhYWP///wAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACH5BAEAACgALAAAAAAGADIAAAaAQIFwSCwOB8ikEkloOp/NgnRKlRqu2IN2y9UivuDwN0EuK87o9HnBbjPe8IZ87qjb7/WHfg/p+yOAgYKAEoWGE4iJFIuMFY6PFpGSF5SVGJeYmZcZnJ0an6AboqOkohynqB2qqx6trh+wsbKwILW2Ibi5urgivb6/vSPCwyTFxkEAOw==') /*images/gh.gif*/ 0 0 repeat-x;
+
+        th {
+            padding: 5px;
+            text-align: left;
+            color: $l1-color;
+        }
+    }
+
+    td {
+        border-top: 1px $m2-color solid;
+        padding: 5px;
+    }
+}
+
+// Accent Table
+.color_table {
+    border: 1px $d2-color solid;
+    border-right: none;
+
+    thead {
+        background: $a1-color;
+
+        th {
+            padding: 5px;
+            text-align: left;
+            color: $l1-color;
+        }
+    }
+
+    td {
+        border: 1px $d2-color solid;
+        border-bottom: none;
+        border-left: none;
+        padding: 5px;
+    }
+}
+
+// Silver
+.silver_table {
+    border: 1px $l3-color solid;
+
+    thead {
+        background: url('data:image/gif;base64,R0lGODlhBgAyANUAAAAAAP////f39/b29vX19fX19fT09PT09PPz8/Ly8vLy8vHx8fHx8fDw8O/v7+/v7+7u7u3t7ezs7Ozs7Ovr6+rq6urq6unp6ejo6Ofn5+fn5+Xl5eXl5eTk5OPj4+Li4uLi4uDg4ODg4N7e3t7e3t3d3dzc3P///wAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACH5BAEAACcALAAAAAAGADIAAAZ+QIJwSBQWjsjk0cBsHp7QqHQKRViviax2m1V4v4uwmEEuN87o9NnBbj/ecIh8TpdH7niJfj/p+ymAgRWDhBaGhxeJiouJGI6PGZGSGpSVlpQbmZocnJ0dn6AeoqOkoh+nqCCqq6yqIa+wsa8itLUjt7i5tyS8vb68JcHCw8FBADs=') /*images/sh.gif*/ 0 0 repeat-x;
+
+        th {
+            padding: 5px;
+            text-align: left;
+        }
+    }
+
+    td {
+        border-top: 1px $l3-color solid;
+        border-bottom: none;
+        padding: 5px;
+    }
+}
+
+/* Complex Table Styles */
+
+.tablesorter-default {
+    .header,
+    .tablesorter-header {
+        background-image: url(data:image/gif;base64,R0lGODlhFQAJAIAAAP///////yH5BAEAAAEALAAAAAAVAAkAAAIXjI+AywnaYnhUMoqt3gZXPmVg94yJVQAAOw==);
+        background-position: center right;
+        background-repeat: no-repeat;
+        cursor: pointer;
+        white-space: normal;
+    }
+
+    thead {
+        .headerSortUp,
+        .tablesorter-headerSortUp,
+        .tablesorter-headerAsc {
+            background-image: url(data:image/gif;base64,R0lGODlhFQAEAIAAAP///////yH5BAEAAAEALAAAAAAVAAQAAAINjI8Bya2wnINUMopZAQA7);
+        }
+
+        .headerSortDown,
+        .tablesorter-headerSortDown,
+        .tablesorter-headerDesc {
+            background-image: url(data:image/gif;base64,R0lGODlhFQAEAIAAAP///////yH5BAEAAAEALAAAAAAVAAQAAAINjB+gC+jP2ptn0WskLQA7);
+        }
+    }
+}
+
+// Generic Styling
+
+.c_tblNoSort .firstRow, tr .firstRow {
+    background: white;
+    border: white;
+    width: 20px;
+}
+
+.tablesorter {
+    width: 100%;
+    border-collapse: collapse;
+    /* Zebra striping */
+    tr:nth-of-type(even) {
+        background: $l2-color;
+    }
+
+    th {
+        background: $d1-color;
+        color: $l1-color;
+        font-family: $header-font;
+        font-weight: $lighter;
+        font-size: $xs-font;
+    }
+
+    td, th {
+        text-align: left;
+        padding: 0 5px;
+    }
+
+    td {
+        border: 1px solid $l3-color;
+    }
+}
+
+.gridOnlyWrapper {
+    padding: 0 10px;
+    min-height:430px;
+}
+
+.gridMargin {
+    margin: 5px;
+}
+
+// pager wrapper, in thead/tfoot
+td.tablesorter-pager {
+    background-color: $l3-color;
+    margin: 0; /* needed for bootstrap .pager gets a 18px bottom margin */
+}
+
+// pager wrapper, div
+.tablesorter-pager {
+    padding: 5px;
+    // pager navigation arrows
+    img {
+        vertical-align: middle;
+        margin-right: 1px;
+        cursor: pointer;
+        margin-top: -2px;
+        height: 12px;
+    }
+    // pager output text
+    .pagedisplay {
+        padding: 0 5px 0 5px;
+        width: auto;
+        white-space: nowrap;
+        text-align: center;
+    }
+
+    .pagerTotalHeader {
+        font-weight: $thick;
+        color: $d2-color;
+    }
+    // pager element reset (needed for bootstrap)
+    .tablesorter-pager select {
+        @include no-margin;
+    }
+    // css used when "updateArrows" option is true
+    // the pager itself gets a disabled class when the number of rows is less than the size
+    &.disabled {
+        display: none;
+    }
+    // hide or fade out pager arrows when the first or last row is visible
+    .disabled {
+        // visibility: hidden
+        @include opacity(.2);
+        cursor: default;
+    }
+}
+
+/* Nested Responsive Table Settings */
+.nestedTable {
+    width: 100%;
+    table-layout: fixed;
+    border-collapse: collapse;
+
+    th {
+        background: $d1-color;
+        color: $l1-color;
+        padding:2px;
+    }
+
+    td, th {
+        text-align: center;
+    }
+// column sizing
+    .tinyCol {
+        width: 2.5%;
+    }
+
+    .smallCol {
+        width: 5%;
+    }
+
+    .mediumCol {
+        width: 15%;
+    }
+
+    .largeCol {
+        width: 20%;
+    }
+
+    .xlargeCol {
+        width: 25%;
+    }
+// header style
+    .header {
+        font-weight: $thick;
+    }
+  .pending{
+    color:$a1-color;
+    font-weight:$thicker;
+    font-style: italic;
+  }
+
+// drop-down style 
+tr{
+  background-color:$l2-color;
+  @include border-radius(4px);
+}  
+// cordinates with responsive size both must be 
+@media only screen and (min-width: 767px) {
+   tr:nth-child(3n+1){
+     background-color:$l1-color;
+   border:none;}
+ }
+}
+
+// button style
+.showMore {
+    color: $d1-color;
+    text-decoration: none;
+
+    &:hover {
+        color: $d1-color;
+        text-decoration: none;
+      cursor:pointer;
+    }
+}
+
+// Responsive Design
+@media only screen and (max-width: 767px) {
+  
+      // uses the data label as header
+td:nth-of-type(n):before { content: attr(data-label); }
+  // zebra striping
+tr{&:nth-child(6n+1), &:nth-child(6n+3) {
+  background-color:$l1-color;}}
+  
+    // hides elements on mobile
+    .hideOnMobile {
+        position: absolute;
+        top: -9999px;
+        left: -9999px;
+        display: none;
+    }
+
+    .nestedTable .spacer, tr .spacer {
+        display: none;
+    }
+
+    // changes table layout
+    .nestedTable {
+        table, thead, tbody, th, td, tr {
+            display: block;
+        }
+      
+        // hide table headers 
+        thead tr {
+            position: absolute;
+            top: -9999px;
+            left: -9999px;
+          
+        }
+
+        td {
+            // behaves  like a "row"
+            border: none;
+            border-bottom: 1px solid $l3-color;
+            position: relative;
+            padding-left: 50%;
+
+            &:before {
+                // now like a table header
+                position: absolute;
+                // top/left values mimic padding
+                left: 6px;
+                width: 45%;
+                white-space: nowrap;
+              font-weight: $thicker;
+            }
+        }
+
+        .tinyCol, .smallCol, .mediumCol, .largeCol, .xlargeCol {
+            width: auto;
+        }
+    }
+}
+
+
