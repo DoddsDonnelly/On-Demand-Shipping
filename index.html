@@ -13,7 +13,7 @@
                 <center><p>Intended to be used as a standalone widget on the home page (or dashboard).  Clicking either the edit or ship button on the widget should load the customer and inventory specific item form.  The form should load on it own page not as a pop up.  <b>Internal site use only.</b></p></center>
             </div>
             <!-- Start of widget coding -->
-            <div class="radius10 level1">
+            <div class="radius10 level1" id="dsWidget">
                 <div class="notification radius30 a1-color level1"><p class="whiteText thick dsCount" data-bind="text: allOnDemandShipments().length"></p></div>
                 <div class="m1-color tRadius10">
                     <h3 class="pad2 whiteText">On Demand Shipping</h3>
@@ -54,7 +54,7 @@
                 <center><p>Inventory and item specific form.  History should load all shipped and pending orders that are specific only to logged in customer or reference customers.  If customer has multiple inventory items this should only load the specific item selected.  <b>Tracking tab should be visible only on internal site, all other tabs need to be visible on both internal and external sites</b></p></center>
             </div>
             <!-- Start of form coding -->
-            <div class="tabsContainter radius4 level1">
+            <div class="tabsContainter radius4 level1" id="dsForm">
                 <div class="tabs effect-2">
                     <!-- tab-title -->
                     <input name="tab" id="tab-1" type="radio" checked="checked">
@@ -83,10 +83,9 @@
                             <!--Tab 1 for Both Sites-->
                             <br>
                             <div>
-
-                                <h3>1224 Four Bottle Sale's Bag, 1000D Black, NY13 emb</h3>
+                                <h4 data-bind="text: inventoryItem"></h4>
                                 <br>
-                                <table class="nestedTable">
+                                <table class="nestedTable" id="">
                                     <thead>
                                         <tr>
                                             <th class="spacer tinyCol">
@@ -101,20 +100,18 @@
                                             <th>Cost</th>
                                         </tr>
                                     </thead>
-                                    <tbody>
+                                    <tbody data-bind="foreach: allOnDemandShipments">
                                         <tr>
                                             <td class="spacer">
                                                 <i class="showMore fa fa-angle-double-right"></i>
                                             </td>
-                                            <td data-label="Quantity:">1</td>
-                                            <td data-label="Name:">John Doe</td>
-                                            <td data-label="Company:">
-                                                <br>
-                                            </td>
-                                            <td data-label="FedEx #">78945</td>
-                                            <td data-label="Ship Date:">3/20/14</td>
-                                            <td data-label="Tracking #">5682 2531 1258</td>
-                                            <td data-label="Cost:">$18.35</td>
+                                            <td data-label="Quantity:" data-bind="text: shipmentQuantity"></td>
+                                            <td data-label="Name:" data-bind="text: destinationContact"></td>
+                                            <td data-label="Company:" data-bind="text: destinationCompany"></td>
+                                            <td data-label="FedEx #" data-bind="text: shipmentFexEx"></td>
+                                            <td data-label="Ship Date:" data-bind="text: shipmentShipDate"></td>
+                                            <td data-label="Tracking #" data-bind="text: shipmentTracking"></td>
+                                            <td data-label="Cost:" data-bind="text: shipmentCost"></td>
                                         </tr>
                                         <tr class="display-none hideOnMobile">
                                             <td class="spacer header">
@@ -133,205 +130,27 @@
                                             </td>
                                         </tr>
                                         <tr class="display-none">
-                                            <td class="spacer" ><br></td>
+                                            <td class="spacer"><br></td>
                                             <td class="spacer">
                                                 <br>
                                             </td>
-                                            <td data-label="Street:">528 East 85nd Street</td>
-                                            <td data-label="City:">New York</td>
-                                            <td data-label="State:">NY</td>
-                                            <td data-label="Zip Code:">10022</td>
-                                            <td data-label="Phone #">(916)258-5566</td>
+                                            <td data-label="Street:" data-bind="text: destinationStreet"></td>
+                                            <td data-label="City:" data-bind="text: destinationCity"></td>
+                                            <td data-label="State:" data-bind="text: destinationState"></td>
+                                            <td data-label="Zip Code:" data-bind="text: destinationZip"></td>
+                                            <td data-label="Phone #" data-bind="text: destinationPhone"></td>
                                             <td class="spacer">
                                                 <br>
                                             </td>
-                                        </tr>
-                                        <tr>
-                                            <td class="spacer">
-                                                <i class="showMore fa fa-angle-double-right"></i>
-                                            </td>
-                                            <td data-label="Quantity:">4</td>
-                                            <td data-label="Name:">Ted Bob</td>
-                                            <td data-label="Company:">Some Company</td>
-                                            <td data-label="FedEx #">125325</td>
-                                            <td data-label="Ship Date:">4/13/14</td>
-                                            <td data-label="Tracking #">5993 7894 4562</td>
-                                            <td data-label="Cost:">$58.40</td>
-                                        </tr>
-                                        <tr class="display-none hideOnMobile">
-                                            <td class="spacer header">
-                                                <br>
-                                            </td>
-                                            <td class="spacer header">
-                                                <br>
-                                            </td>
-                                            <td class="header">Street</td>
-                                            <td class="header">City</td>
-                                            <td class="header">State</td>
-                                            <td class="header">Zip Code</td>
-                                            <td class="header">Phone #</td>
-                                            <td class="spacer header">
-                                                <br>
-                                            </td>
-                                        </tr>
-                                        <tr class="display-none">
-                                            <td class="spacer">
-                                                <br>
-                                            </td>
-                                            <td class="spacer">
-                                                <br>
-                                            </td>
-                                            <td data-label="Street:">7898 Company Ave</td>
-                                            <td data-label="City:">Norwood</td>
-                                            <td data-label="State:">MA</td>
-                                            <td data-label="Zip Code:">02062</td>
-                                            <td data-label="Phone #">(800)123-7894</td>
-                                            <td class="spacer">
-                                                <br>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td class="spacer">
-                                                <i class="showMore fa fa-angle-double-right"></i>
-                                            </td>
-                                            <td data-label="Quantity:">17</td>
-                                            <td data-label="Name:">Jane More</td>
-                                            <td data-label="Company:">
-                                                ABC llc
-                                            </td>
-                                            <td data-label="FedEx #">Shipper</td>
-                                            <td data-label="Ship Date:">1/20/15</td>
-                                            <td data-label="Tracking #">9882 4568 1258</td>
-                                            <td data-label="Cost:">$108.35</td>
-                                        </tr>
-                                        <tr class="display-none hideOnMobile">
-                                            <td class="spacer header">
-                                                <br>
-                                            </td>
-                                            <td class="spacer header">
-                                                <br>
-                                            </td>
-                                            <td class="header">Street</td>
-                                            <td class="header">City</td>
-                                            <td class="header">State</td>
-                                            <td class="header">Zip Code</td>
-                                            <td class="header">Phone #</td>
-                                            <td class="spacer header">
-                                                <br>
-                                            </td>
-                                        </tr>
-                                        <tr class="display-none">
-                                            <td class="spacer">
-                                                <br>
-                                            </td>
-                                            <td class="spacer">
-                                                <br>
-                                            </td>
-                                            <td data-label="Street:">789 E Street</td>
-                                            <td data-label="City:">Hollywood</td>
-                                            <td data-label="State:">CA</td>
-                                            <td data-label="Zip Code:">17822</td>
-                                            <td data-label="Phone #">(987)123-5566</td>
-                                            <td class="spacer">
-                                                <br>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td class="spacer">
-                                                <i class="showMore fa fa-angle-double-right"></i>
-                                            </td>
-                                            <td data-label="Quantity:">44</td>
-                                            <td data-label="Name:"><br></td>
-                                            <td data-label="Company:">Company Only</td>
-                                            <td data-label="FedEx #">456258</td>
-                                            <td data-label="Ship Date:">3/13/15</td>
-                                            <td data-label="Tracking #">9999 9454 2222</td>
-                                            <td data-label="Cost:">$789.40</td>
-                                        </tr>
-                                        <tr class="display-none hideOnMobile">
-                                            <td class="spacer header">
-                                                <br>
-                                            </td>
-                                            <td class="spacer header">
-                                                <br>
-                                            </td>
-                                            <td class="header">Street</td>
-                                            <td class="header">City</td>
-                                            <td class="header">State</td>
-                                            <td class="header">Zip Code</td>
-                                            <td class="header">Phone #</td>
-                                            <td class="spacer header">
-                                                <br>
-                                            </td>
-                                        </tr>
-                                        <tr class="display-none">
-                                            <td class="spacer">
-                                                <br>
-                                            </td>
-                                            <td class="spacer">
-                                                <br>
-                                            </td>
-                                            <td data-label="Street:">1235 Pear Ave</td>
-                                            <td data-label="City:">Toko</td>
-                                            <td data-label="State:">Am</td>
-                                            <td data-label="Zip Code:">45862</td>
-                                            <td data-label="Phone #">(800)789-4594</td>
-                                            <td class="spacer">
-                                                <br>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td class="spacer">
-                                                <i class="showMore fa fa-angle-double-right"></i>
-                                            </td>
-                                            <td data-label="Quantity:">2</td>
-                                            <td data-label="Name:">Lisa Jefferson</td>
-                                            <td data-label="Company:">Long Company Name Test</td>
-                                            <td data-label="FedEx #">Shipper</td>
-                                            <td data-label="Ship Date:">
-                                                <span class="pending">...</span>
-                                            </td>
-                                            <td data-label="Tracking #">
-                                                <span class="pending">Pending</span>
-                                            </td>
-                                            <td data-label="Cost:">
-                                                <span class="pending">...</span>
-                                            </td>
-                                        </tr>
-                                        <tr class="display-none hideOnMobile">
-                                            <td class="spacer header">
-                                                <br>
-                                            </td>
-                                            <td class="spacer header">
-                                                <br>
-                                            </td>
-                                            <td class="header">Street</td>
-                                            <td class="header">City</td>
-                                            <td class="header">State</td>
-                                            <td class="header">Zip Code</td>
-                                            <td class="header">Phone #</td>
-                                            <td class="spacer header">
-                                                <br>
-                                            </td>
-                                        </tr>
-                                        <tr class="display-none">
-                                            <td class="spacer"></td>
-                                            <td class="spacer"></td>
-                                            <td data-label="Street:">78945 Street Place, Ste 456</td>
-                                            <td data-label="City:">Honolulu</td>
-                                            <td data-label="State:">HI</td>
-                                            <td data-label="Zip Code:">96819</td>
-                                            <td data-label="Phone #">(808)456-7851</td>
-                                            <td class="spacer"></td>
                                         </tr>
                                     </tbody>
                                 </table><hr />
                                 <center>
                                     <div class="w25 fleft centerAlignment" id="total">
-                                        <p class="s-font thick">Ordered: 50</p>
+                                        <p class="s-font thick">Ordered: <span data-bind="text: quantityOrdered"></span></p>
                                     </div>
                                     <div class="w25 fleft centerAlignment">
-                                        <p class="s-font thick">Shipped: 6</p>
+                                        <p class="s-font thick">Shipped: <span data-bind='text: shipmentQuantity(totalShipped())'></span></p>
                                     </div>
                                     <div class="w25 fleft centerAlignment">
                                         <p class="s-font thick">Balance: 49</p>
@@ -348,16 +167,8 @@
                             <!--Tab 2 for both only-->
                             <div class="forms panes">
                                 <label for="onFile">Shipping Address</label>
-                                <select name="onFile" onchange="useNewAddress(this)">
+                                <select name="onFile" onchange="useNewAddress(this)" data-bind="foreach: allOnDemandShipments">
                                     <option value="newAddress" selected="">New Address</option>
-                                    <option>
-                                        Laura Belocas
-
-                                        328 East 52nd Street
-                                        New York
-                                        NY
-                                        10022
-                                    </option>
                                     <option>
                                         Fred Migliero
                                         Classic Wine Imports / Martignetti
@@ -377,21 +188,21 @@
 
                                     </option>
                                 </select>
-                                <div id="useAddress">
-                                    <label for="shippingName">First &amp; last name</label>
-                                    <input name="shippingName" id="shippingName" type="text" placeholder="John Smith">
-                                    <label for="company">Company</label>
-                                    <input name="company" id="company" type="text" placeholder="Company">
-                                    <label for="street">Street<span class="accentText">*</span></label>
-                                    <input name="street" id="street" required="" type="text" placeholder="Street">
-                                    <fieldset>
+                                <form data-bind="submit:addItem">
+                                    <div id="useAddress">
+                                        <label for="destinationContactToAdd">First &amp; last name<span class="accentText">*</span></label>
+                                        <input type="text" id="shippingName" required placeholder="John Smith" data-bind='value:destinationContactToAdd, valueUpdate: "afterkeydown"' />
+                                        <label for="destinationCompanyToAdd">Company</label>
+                                        <input type="text" id="company" placeholder="ABC Inc" data-bind='value:destinationCompanyToAdd, valueUpdate: "afterkeydown"' />
+                                        <label for="destinationStreetToAdd">Street<span class="accentText">*</span></label>
+                                        <input type="text" id="street" placeholder="1234 Park Place" required data-bind='value:destinationStreetToAdd, valueUpdate: "afterkeydown"' />
                                         <div class="fleft TAColPane">
-                                            <label for="city">City<span class="accentText">*</span></label>
-                                            <input name="city" id="city" required="" type="text" placeholder="City">
+                                            <label for="destinationCityToAdd">City<span class="accentText">*</span></label>
+                                            <input type="text" id="city" required placeholder="Sacramento" data-bind='value:destinationCityToAdd, valueUpdate: "afterkeydown"' />
                                         </div>
-                                        <div class="fleft centerForm TBColPane">
-                                            <label for="state">State<span class="accentText">*</span></label>
-                                            <select name="state" required="">
+                                        <div class="fleft TAColPane">
+                                            <label for="destinationStateToAdd">State<span class="accentText">*</span></label>
+                                            <select name="destinationStateToAdd" id="state" required type="text" placeholder="City" data-bind='value:destinationStateToAdd, valueUpdate: "afterkeydown"'>
                                                 <option disabled="" id="placeholder" selected="">State</option>
                                                 <option value="AL">Alabama</option>
                                                 <option value="AK">Alaska</option>
@@ -447,34 +258,32 @@
                                             </select>
                                         </div>
                                         <div class="fright TBColPane">
-                                            <label for="zipCode">Zip Code<span class="accentText">*</span></label>
-                                            <input name="zipCode" id="zipCode" required="" type="number" placeholder="00000" pattern="(\d{5}([\-]\d{4})?)">
+                                            <label for="destinationZipToAdd">Zip Code<span class="accentText">*</span></label>
+                                            <input type="number" id="zipCode" placeholder="00000" pattern="(\d{5}([\-]\d{4})?)" required data-bind='value:destinationZipToAdd, valueUpdate: "afterkeydown"' />
                                         </div>
                                         <div class="clr"></div>
-                                    </fieldset>
-
-                                    <div class="fleft TAColPane">
-                                        <label for="phoneNumber">Phone Number</label>
-                                        <input name="phoneNumber" id="phoneNumber" type="text" placeholder="999-999-9999">
+                                        <div class="fleft TAColPane">
+                                            <label for="destinationPhoneToAdd">Phone Number</label>
+                                            <input type="text" placeholder="999-999-9999" id="phoneNumber" data-bind='value:destinationPhoneToAdd, valueUpdate: "afterkeydown"' />
+                                        </div>
                                     </div>
-
+                                    <div class="fleft TAColPane">
+                                        <label for="shipmentQuantityToAdd">Quantity to ship<span class="accentText">*</span></label>
+                                        <input type="text" id="quantity" required placeholder="12" data-bind='value:shipmentQuantityToAdd, valueUpdate: "afterkeydown"' />
+                                    </div>
+                                    <div class="fright TBColPane">
+                                        <label for="shipmentFedExToAdd">FedEx Number</label>
+                                        <input type="text" id="fedExNumber" placeholder="000000000" data-bind='value:shipmentFedExToAdd, valueUpdate: "afterkeydown"' />
+                                        <center><small>Leave blank to be billed</small></center>
+                                    </div>
+                                    <div class="clr"></div>
+                                    <div class="form-submit-wrap">
+                                        <button class="form-submit" type="submit" data-bind="enable: destinationContactToAdd().length > 0 && destinationStreetToAdd().length > 0 && destinationCityToAdd().length > 0 && destinationStateToAdd().length > 0 && destinationZipToAdd().length > 0 && shipmentQuantityToAdd().length > 0">Add</button>
+                                    </div>
+                                </form>
+                                <div class="required">
+                                    <small><span class="accentText">*Required</span></small><br>
                                 </div>
-                                <div class="fleft TAColPane">
-                                    <label for="quantity">Quantity to ship<span class="accentText">*</span></label>
-                                    <input name="quantity" id="quantity" required="" type="text" min="1" placeholder="12">
-                                </div>
-                                <div class="fright TBColPane">
-                                    <label for="fedExNumber">FedEx Number</label>
-                                    <input name="fedExNumber" id="fedExNumber" type="text" placeholder="000000000">
-                                    <center><small>Leave blank to be billed</small></center>
-                                </div>
-                                <div class="clr"></div>
-                                <div class="form-submit-wrap">
-                                    <button class="form-submit" type="submit"><i class="fa fa-check"></i><span class="hideOnMobile"> Submit</span></button>
-                                </div>
-                            </div>
-                            <div class="required">
-                                <small><span class="accentText">*Required</span></small><br>
                             </div>
                         </section>
                         <section id="tab-item-3">
@@ -658,6 +467,7 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/knockout/3.3.0/knockout-min.js"></script>
 <script src="scripts\jquery.details.min.js"></script>
 <script src="ViewModel\widget.js"></script>
+<script src="ViewModel\form.js"></script>
 <script type="text/jscript">
     // Form Script
     // Jquery Required
