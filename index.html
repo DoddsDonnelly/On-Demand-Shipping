@@ -460,11 +460,37 @@
             <!-- End of form coding -->
         </div>
     </div>
+    <div class="row">
+        <div id="dsForm">
+            Data will show within 2 seconds (ajax delay is set to 2)
+            <h1 data-bind="text: art"></h1>
+            <h2>Employees</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Full name</th>
+                        <th>Last name</th>
+                        <th>First name</th>
+                        <th>Age</th>
+                    </tr>
+                </thead>
+                <tbody data-bind="foreach: onDemandShipment">
+                    <tr>
+                        <td data-bind="text: fullName"></td>
+                        <td data-bind="text: lastName"></td>
+                        <td data-bind="text: firstName"></td>
+                        <td data-bind="text: age"></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        </div>
 </body>
 </html>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.0.0-alpha1/jquery.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/knockout/3.3.0/knockout-min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/knockout.mapping/2.4.1/knockout.mapping.min.js"></script>
 <script src="scripts\jquery.details.min.js"></script>
 <script src="ViewModel\widget.js"></script>
 <script src="ViewModel\form.js"></script>
