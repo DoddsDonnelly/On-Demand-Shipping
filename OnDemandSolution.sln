@@ -11,6 +11,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution 
 		LICENSE = LICENSE
 		params.json = params.json
 		README.md = README.md
+		Test.html = Test.html
 	EndProjectSection
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "stylesheets", "stylesheets", "{441AA07D-28FB-4617-AF03-4CA5D0D2587A}"
@@ -61,6 +62,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "images", "images", "{1D2C64
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "data", "data", "{B414E3EF-F7A9-4344-8F08-4CA5C8F2A47E}"
 	ProjectSection(SolutionItems) = preProject
+		Data\data.json = Data\data.json
 		data\onDemandShip.json = data\onDemandShip.json
 		data\onDemandShip.txt = data\onDemandShip.txt
 	EndProjectSection
@@ -73,6 +75,7 @@ EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "ViewModel", "ViewModel", "{B1106E7A-96BC-41F7-A27B-E10406219D7E}"
 	ProjectSection(SolutionItems) = preProject
 		viewModel\form.js = viewModel\form.js
+		viewModel\form2.js = viewModel\form2.js
 		viewModel\json.js = viewModel\json.js
 		viewModel\widget.js = viewModel\widget.js
 	EndProjectSection

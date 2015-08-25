@@ -223,4 +223,4 @@ ko.bindingHandlers.jqButton = {
     }
 };
 
-ko.applyBindings(new viewModel());
+ko.applyBindings(new viewModel(), document.getElementById("dsWidget"));

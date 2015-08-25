@@ -1,0 +1,173 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+</head>
+<body>
+    <div id="dsForm">
+        <p data-bind="text: companyName"></p>
+        <div data-bind="foreach: inventoryItem">
+            <p data-bind="text: product.number"></p>
+            <p data-bind="text: product.name"></p>
+            <p data-bind="text: fabric.color"></p>
+            <p data-bind="text: fabric.weight"></p>
+            <p data-bind="text: art"></p>
+            <p data-bind="text: quantity"></p>
+            <hr />
+            <table>
+                <tbody data-bind="foreach: onDemandShipment">
+                    <tr>
+                        <td data-bind="text: destination.contactName"></td>
+                        <td data-bind="text: destination.companyName"></td>
+                        <td data-bind="text: destination.street"></td>
+                        <td data-bind="text: destination.city"></td>
+                        <td data-bind="text: destination.state"></td>
+                        <td data-bind="text: destination.zipCode"></td>
+                        <td data-bind="text: destination.phoneNumber"></td>
+                        <td data-bind="text: shipment.quantity"></td>
+                        <td data-bind="text: shipment.fedexNumber"></td>
+                        <td data-bind="text: shipment.trackingNumber"></td>
+                        <td data-bind="text: shipment.cost"></td>
+                        <td data-bind="text: shipment.shipDate"></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+    </div>
+</body>
+</html>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.0.0-alpha1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/knockout/3.3.0/knockout-min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/knockout.mapping/2.4.1/knockout.mapping.min.js"></script>
+<script src="scripts\jquery.details.min.js"></script>
+<script>
+    // JavaScript source code
+
+    var dsForm;
+
+
+    // On Demand Shipment ViewModel 
+    function onDemandShipmentViewModel(data) {
+        var onDemandShipmentMapping = {
+            'destination': {
+                'contactName': {
+                    'create': function (options) {
+                        return ko.observable(options.data);
+                    }
+                },
+                'companyName': {
+                    'create': function (options) {
+                        return ko.observable(options.data);
+                    }
+                },
+                'street': {
+                    'create': function (options) {
+                        return ko.observable(options.data);
+                    }
+                },
+                'city': {
+                    'create': function (options) {
+                        return ko.observable(options.data);
+                    }
+                },
+                'state': {
+                    'create': function (options) {
+                        return ko.observable(options.data);
+                    }
+                },
+                'zipCode': {
+                    'create': function (options) {
+                        return ko.observable(options.data);
+                    }
+                },
+                'phoneNumber': {
+                    'create': function (options) {
+                        return ko.observable(options.data);
+                    }
+                }
+            },
+            'shipment': {
+                'quantity': {
+                    'create': function (options) {
+                        return ko.observable(options.data);
+                    }
+                },
+                'fedexNumber': {
+                    'create': function (options) {
+                        return ko.observable(options.data);
+                    }
+                },
+                'trackingNumber': {
+                    'create': function (options) {
+                        return ko.observable(options.data);
+                    }
+                },
+                'cost': {
+                    'create': function (options) {
+                        return ko.observable(options.data);
+                    }
+                },
+                'shipDate': {
+                    'create': function (options) {
+                        return ko.observable(options.data);
+                    }
+                }
+            }
+        };
+
+        ko.mapping.fromJS(data, onDemandShipmentMapping, this);
+    }
+
+    //Form ViewModel 
+    function dsFormViewModel(data) {
+        var companyMapping = {
+            'copy': ['companyName'],
+            'inventoryItem': {
+                key: function (data) {
+                    return ko.utils.unwrapObservable(data.inventoryItemId);
+                },
+                create: function (options) {
+                    return new inventoryViewModel(options.data);
+                }
+            }
+        };
+
+        ko.mapping.fromJS(data, companyMapping, this);
+    }
+
+    //Inventory ViewModel
+    function inventoryViewModel(data) {
+        var inventoryMapping = {
+            'copy': ['product', 'fabric', 'art', 'quantity'],
+            'onDemandShipment': {
+                key: function (data) {
+                    return ko.utils.unwrapObservable(data.onDemandShipmentId);
+                },
+                create: function (options) {
+                    return new onDemandShipmentViewModel(options.data);
+                }
+            }
+        };
+
+        ko.mapping.fromJS(data, inventoryMapping, this);
+    }
+
+
+
+    $.ajax({
+        url: 'https://raw.githubusercontent.com/DoddsDonnelly/On-Demand-Shipping/fb75488f129328f0da5beeedcaaa0d15ca2c4ce5/Data/data.json',
+        type: 'GET',
+        dataType: 'JSON',
+        success: function (result) {
+            var data = JSON.parse(result);
+            company = new dsFormViewModel(data);
+            ko.applyBindings(dsForm, $('#dsForm').get(0));
+        },
+        error: function (result) {
+            alert('something went wrong: ' + response);
+        }
+    });
+</script>

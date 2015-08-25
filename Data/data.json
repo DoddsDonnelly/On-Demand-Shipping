@@ -1,0 +1,107 @@
+{
+            "companyName": "ABC Company",
+            "inventoryItem": [{
+                "inventoryItemId": 1,
+              "product": {
+                "name": "WOW Cube",
+                "number": "6495"
+              },
+                "fabric": {
+                    "color": "Black",
+                    "weight": "1200d"
+                },
+                "art": "Page",
+                "quantity": "150",
+                "onDemandShipment": [{
+                    "onDemandShipmentId": 1,
+                    "destination": {
+                        "contactName": "Jane Doe",
+                        "companyName": "ABC Company",
+                        "street": "1235 Pear Ave",
+                        "city": "Los Angeles",
+                        "state": "CA",
+                        "zipCode": "45862",
+                        "phoneNumber": "8007894594"
+                    },
+                    "shipment": {
+                        "quantity": "44",
+                        "fedexNumber": "456258",
+                        "trackingNumber": "9999 9454 2222",
+                        "cost": "$789.40",
+                        "shipDate": "3/13/15"
+                    }
+                }, {
+                    "onDemandShipmentId": 2,
+                    "destination": {
+                        "contactName": "Ted Bob",
+                        "companyName": "Some Company",
+                        "street": "7898 Company Ave",
+                        "city": "Norwood",
+                        "state": "MA",
+                        "zipCode": "02062",
+                        "phoneNumber": "8001237894"
+                    },
+                    "shipment": {
+                        "quantity": "4",
+                        "fedexNumber": "125325",
+                        "trackingNumber": "5993 7894 4562",
+                        "cost": "$58.40",
+                        "shipDate": "4/13/14"
+                    }
+                }, {
+                    "onDemandShipmentId": 3,
+                    "destination": {
+                        "contactName": "Tim More",
+                        "companyName": "ABC llc",
+                        "street": "789 E Street",
+                        "city": "Hollywood",
+                        "state": "CA",
+                        "zipCode": "17822",
+                        "phoneNumber": "9871235566"
+                    },
+                    "shipment": {
+                        "quantity": "17",
+                        "fedexNumber": "",
+                        "trackingNumber": "9882 4568 1258",
+                        "cost": "$108.35",
+                        "shipDate": "1/20/15"
+                    }
+                }, {
+                    "onDemandShipmentId": 4,
+                    "destination": {
+                        "contactName": "Mike Joe",
+                        "companyName": "Test Company",
+                        "street": "1235 Pear Ave",
+                        "city": "Toko",
+                        "state": "AM",
+                        "zipCode": "45862",
+                        "phoneNumber": "8007894594"
+                    },
+                    "shipment": {
+                        "quantity": "2",
+                        "fedexNumber": "125325",
+                        "trackingNumber": "5993 7894 4562",
+                        "cost": "$789.40",
+                        "shipDate": "3/13/15"
+                    }
+                }, {
+                    "onDemandShipmentId": 5,
+                    "destination": {
+                        "contactName": "Lisa Jefferson",
+                        "companyName": "Long Company Name",
+                        "street": "78945 Street Place, Ste 456",
+                        "city": "Honolulu",
+                        "state": "HI",
+                        "zipCode": "96819",
+                        "phoneNumber": "8084567851"
+                    },
+                    "shipment": {
+                        "quantity": "1",
+                        "fedexNumber": "",
+                        "trackingNumber": "",
+                        "cost": "",
+                        "shipDate": ""
+                    }
+                }]
+            }]
+        }
