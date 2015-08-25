@@ -48,6 +48,7 @@
 
     var dsForm;
 
+
     // On Demand Shipment ViewModel 
     function onDemandShipmentViewModel(data) {
         var onDemandShipmentMapping = {
@@ -120,23 +121,6 @@
         ko.mapping.fromJS(data, onDemandShipmentMapping, this);
     }
 
-    //Form ViewModel 
-    function dsFormViewModel(data) {
-        var companyMapping = {
-            'copy': ['companyName'],
-            'inventoryItem': {
-                key: function (data) {
-                    return ko.utils.unwrapObservable(data.inventoryItemId);
-                },
-                create: function (options) {
-                    return new inventoryViewModel(options.data);
-                }
-            }
-        };
-
-        ko.mapping.fromJS(data, companyMapping, this);
-    }
-
     //Inventory ViewModel
     function inventoryViewModel(data) {
         var inventoryMapping = {
@@ -154,18 +138,33 @@
         ko.mapping.fromJS(data, inventoryMapping, this);
     }
 
+    //Form ViewModel 
+    function dsFormViewModel(data) {
+        var companyMapping = {
+            'copy': ['companyName'],
+            'inventoryItem': {
+                key: function (data) {
+                    return ko.utils.unwrapObservable(data.inventoryItemId);
+                },
+                create: function (options) {
+                    return new inventoryViewModel(options.data);
+                }
+            }
+        };
 
-
-    var xmlhttp = new XMLHttpRequest();
-    var url = "http://doddsdonnelly.github.io/On-Demand-Shipping/Data/data.json'";
-
-    xmlhttp.onreadystatechange = function () {
-        if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
-            var data = JSON.parse(xmlhttp.responseText);
-            myFunction(data);
-        }
+        ko.mapping.fromJS(data, companyMapping, this);
     }
 
-    xmlhttp.open("GET", url, true);
-    xmlhttp.send();
+    $.ajax({
+        type: 'GET',
+        url: 'http://doddsdonnelly.github.io/On-Demand-Shipping/Data/data.json',
+        dataType: 'JSON',
+        success: function (data) {
+            var dsFormViewModel = ko.mapping.fromJS(data[0]);
+            ko.applyBindings(dsFormViewModel);
+        },
+        error: function (result) {
+            alert('something went wrong: ' + response);
+        }
+    });
 </script>
