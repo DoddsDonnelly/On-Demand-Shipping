@@ -48,7 +48,6 @@
 
     var dsForm;
 
-
     // On Demand Shipment ViewModel 
     function onDemandShipmentViewModel(data) {
         var onDemandShipmentMapping = {
@@ -157,17 +156,16 @@
 
 
 
-    $.ajax({
-        url: 'https://raw.githubusercontent.com/DoddsDonnelly/On-Demand-Shipping/fb75488f129328f0da5beeedcaaa0d15ca2c4ce5/Data/data.json',
-        type: 'GET',
-        dataType: 'JSON',
-        success: function (result) {
-            var data = JSON.parse(result);
-            company = new dsFormViewModel(data);
-            ko.applyBindings(dsForm, $('#dsForm').get(0));
-        },
-        error: function (result) {
-            alert('something went wrong: ' + response);
+    var xmlhttp = new XMLHttpRequest();
+    var url = "http://doddsdonnelly.github.io/On-Demand-Shipping/Data/data.json'";
+
+    xmlhttp.onreadystatechange = function () {
+        if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
+            var data = JSON.parse(xmlhttp.responseText);
+            myFunction(data);
         }
-    });
+    }
+
+    xmlhttp.open("GET", url, true);
+    xmlhttp.send();
 </script>
